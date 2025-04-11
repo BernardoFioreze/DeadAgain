@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlft2yena0ndb"]
+[gd_scene load_steps=7 format=3 uid="uid://dlft2yena0ndb"]
 
 [ext_resource type="Texture2D" uid="uid://bemsxwpg3xe4r" path="res://Assets/tilemap-basic.png" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://di78jq0fsna0q" path="res://Scenes/Rick.tscn" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://cnhlmolxqm83c" path="res://Scenes/zombie.tscn" id="3_kln2b"]
 
 [sub_resource type="GDScript" id="GDScript_wtcfe"]
 script/source = "extends Node2D
@@ -37,6 +38,9 @@ tile_set = SubResource("TileSet_epypp")
 
 [node name="Rick" parent="." groups=["Character"] instance=ExtResource("2_kln2b")]
 position = Vector2(-26, -4)
+
+[node name="Zombie" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(29, -5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
