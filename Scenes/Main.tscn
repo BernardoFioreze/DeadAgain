@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlft2yena0ndb"]
+[gd_scene load_steps=11 format=3 uid="uid://dlft2yena0ndb"]
 
 [ext_resource type="Texture2D" uid="uid://bemsxwpg3xe4r" path="res://Assets/tilemap-basic.png" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://di78jq0fsna0q" path="res://Scenes/Rick.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://cnhlmolxqm83c" path="res://Scenes/zombie.tscn" id="3_kln2b"]
+[ext_resource type="PackedScene" uid="uid://emkvit7kuhym" path="res://Scenes/button_grid.tscn" id="4_rgh2o"]
 
 [sub_resource type="GDScript" id="GDScript_wtcfe"]
 script/source = "extends Node2D
@@ -28,6 +29,12 @@ tile_shape = 1
 tile_layout = 4
 tile_size = Vector2i(64, 8)
 sources/0 = SubResource("TileSetAtlasSource_0e48y")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_rgh2o"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_pbw6q"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_v1gob"]
 
 [node name="Main" type="Node2D"]
 script = SubResource("GDScript_wtcfe")
@@ -67,18 +74,14 @@ offset_right = 319.0
 offset_bottom = 67.0
 columns = 4
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Panel/GridContainer"]
-custom_minimum_size = Vector2(50, 67)
+[node name="Button_Grid" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("4_rgh2o")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_rgh2o")
 
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Panel/GridContainer"]
-custom_minimum_size = Vector2(50, 67)
+[node name="Button_Grid2" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("4_rgh2o")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_pbw6q")
 
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Panel/GridContainer"]
-custom_minimum_size = Vector2(50, 67)
+[node name="Button_Grid3" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("4_rgh2o")]
 layout_mode = 2
-
-[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Panel/GridContainer"]
-custom_minimum_size = Vector2(39, 67)
-layout_mode = 2
+button_group = SubResource("ButtonGroup_v1gob")
