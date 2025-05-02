@@ -7,6 +7,7 @@ extends Node
 @export var name_item: String = ""
 @export var texture: Texture2D
 @export var max_stack: int = 1
+@export var stack: int = 0
 # factor é o valor de dano/cura do item
 @export var factor: int = 0
 @export var description: String = ""
