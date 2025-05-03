@@ -1,23 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dlft2yena0ndb"]
 
 [ext_resource type="Texture2D" uid="uid://bemsxwpg3xe4r" path="res://Assets/tilemap-basic.png" id="1_idj7w"]
+[ext_resource type="Script" uid="uid://con6bkd78fdeg" path="res://Scripts/main.gd" id="1_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://di78jq0fsna0q" path="res://Scenes/Rick.tscn" id="2_kln2b"]
-[ext_resource type="PackedScene" uid="uid://cnhlmolxqm83c" path="res://Scenes/zombie.tscn" id="3_kln2b"]
-[ext_resource type="PackedScene" uid="uid://emkvit7kuhym" path="res://Scenes/button_grid.tscn" id="4_rgh2o"]
-
-[sub_resource type="GDScript" id="GDScript_wtcfe"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
+[ext_resource type="PackedScene" uid="uid://cnhlmolxqm83c" path="res://Scenes/Zombie.tscn" id="3_kln2b"]
+[ext_resource type="PackedScene" uid="uid://emkvit7kuhym" path="res://Scenes/GridButton.tscn" id="4_rgh2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("1_idj7w")
@@ -37,17 +24,68 @@ sources/0 = SubResource("TileSetAtlasSource_0e48y")
 [sub_resource type="ButtonGroup" id="ButtonGroup_v1gob"]
 
 [node name="Main" type="Node2D"]
-script = SubResource("GDScript_wtcfe")
+script = ExtResource("1_pbw6q")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
 tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_epypp")
 
+[node name="Tilemap-basic4" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(64, 8)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic5" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(-64, 8)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic6" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(-100, 4)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic7" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(-65, 0)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic8" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(-36, -4)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic9" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(-3, -8)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic10" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(34, -4)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic11" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(68, 0)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic12" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(97, 5)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(2, 16)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic2" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(-32, 12)
+texture = ExtResource("1_idj7w")
+
+[node name="Tilemap-basic3" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(32, 12)
+texture = ExtResource("1_idj7w")
+
 [node name="Rick" parent="." groups=["Character"] instance=ExtResource("2_kln2b")]
-position = Vector2(-26, -4)
+z_index = 1
+position = Vector2(-26, -11)
 
 [node name="Zombie" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(29, -5)
+z_index = 1
+position = Vector2(29, -11)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -85,3 +123,9 @@ button_group = SubResource("ButtonGroup_pbw6q")
 [node name="Button_Grid3" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("4_rgh2o")]
 layout_mode = 2
 button_group = SubResource("ButtonGroup_v1gob")
+
+[node name="Zombie2" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(65, -6)
+
+[node name="Zombie3" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(99, -10)

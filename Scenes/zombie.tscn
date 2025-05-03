@@ -2,17 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://k5h82u4goark" path="res://Assets/Sprite-Zombie.png" id="1_h3kin"]
 [ext_resource type="Script" uid="uid://nv26y3uug3wq" path="res://Scripts/zombie.gd" id="1_n70j1"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n70j1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_h3kin")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://srup1epjk72e" path="res://Scenes/Healthbar.tscn" id="3_iyl7r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyl7r"]
 radius = 14.0
@@ -22,12 +12,19 @@ height = 34.0
 input_pickable = true
 script = ExtResource("1_n70j1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -5)
-sprite_frames = SubResource("SpriteFrames_n70j1")
+[node name="ZombieSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_h3kin")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_iyl7r")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_iyl7r")]
+offset_left = -12.0
+offset_top = -18.0
+offset_right = 228.0
+offset_bottom = 9.0
+scale = Vector2(0.1, 0.1)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

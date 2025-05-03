@@ -2,17 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qrsdaetgkc5r" path="res://Scripts/rick.gd" id="1_dbut8"]
 [ext_resource type="Texture2D" uid="uid://qdftbf1ic2vc" path="res://Assets/Sprite-Rick.png" id="1_ymxaj"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_it8n0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_ymxaj")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://srup1epjk72e" path="res://Scenes/Healthbar.tscn" id="3_dtu71"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88kja"]
 radius = 14.0
@@ -22,12 +12,18 @@ height = 34.0
 input_pickable = true
 script = ExtResource("1_dbut8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -5)
-sprite_frames = SubResource("SpriteFrames_it8n0")
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ymxaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_88kja")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_dtu71")]
+offset_left = -12.0
+offset_top = -18.0
+offset_right = 228.0
+offset_bottom = 9.0
+scale = Vector2(0.1, 0.1)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
