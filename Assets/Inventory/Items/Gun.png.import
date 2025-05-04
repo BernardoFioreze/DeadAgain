@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy3510gksvwf0"
-path="res://.godot/imported/Uzi_gun.jpg-d3e9456d0f0a62887c3be9f4967d19df.ctex"
+uid="uid://dlqcjcfrud4ow"
+path="res://.godot/imported/Gun.png-93dc62b03363551a8bee64f2ee5ec76a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Inventory/Items/Uzi_gun.jpg"
-dest_files=["res://.godot/imported/Uzi_gun.jpg-d3e9456d0f0a62887c3be9f4967d19df.ctex"]
+source_file="res://Assets/Inventory/Items/Gun.png"
+dest_files=["res://.godot/imported/Gun.png-93dc62b03363551a8bee64f2ee5ec76a.ctex"]
 
 [params]
 

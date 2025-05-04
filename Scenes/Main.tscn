@@ -35,5 +35,3 @@ position = Vector2(22, -24)
 zoom = Vector2(4, 4)
 
 [node name="UI_Info" parent="." instance=ExtResource("5_pbw6q")]
-custom_minimum_size = Vector2(25, 0)
-offset_right = 25.0
