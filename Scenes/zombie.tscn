@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnhlmolxqm83c"]
+[gd_scene load_steps=9 format=3 uid="uid://cnhlmolxqm83c"]
 
 [ext_resource type="Texture2D" uid="uid://k5h82u4goark" path="res://Assets/Sprites/Sprite-Zombie.png" id="1_h3kin"]
 [ext_resource type="Script" uid="uid://nv26y3uug3wq" path="res://Scripts/zombie.gd" id="1_n70j1"]
-[ext_resource type="Resource" uid="uid://7bofrcqb2o7e" path="res://Inventory/Items_resources/granade.tres" id="2_mntmy"]
 [ext_resource type="PackedScene" uid="uid://srup1epjk72e" path="res://Scenes/Healthbar.tscn" id="3_iyl7r"]
 [ext_resource type="Texture2D" uid="uid://dvscjci14kgcb" path="res://Assets/Sprites/Sprite-Zombie-2.png" id="4_2dktg"]
 
@@ -19,10 +18,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_432o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2dktg")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -37,16 +39,16 @@ animations = [{
 radius = 14.0
 height = 34.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2dktg"]
-
 [node name="Zombie" type="CharacterBody2D" groups=["Enemy"]]
 input_pickable = true
 script = ExtResource("1_n70j1")
-dropped_item = ExtResource("2_mntmy")
 
 [node name="ZombieAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y54wu")
 animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.613641
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -58,15 +60,6 @@ offset_top = -18.0
 offset_right = 228.0
 offset_bottom = 9.0
 scale = Vector2(0.1, 0.1)
-
-[node name="PickableArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
-position = Vector2(0, 12)
-shape = SubResource("CircleShape2D_2dktg")
-
-[node name="Animation_timer" type="Timer" parent="."]
-one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 12)

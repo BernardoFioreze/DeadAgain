@@ -3,9 +3,6 @@ extends CharacterBody2D
 @onready var health_bar = $HealthBar
 @onready var zombie = $ZombieAnimatedSprite
 
-@export var dropped_item: InvItem
-var player = null
-
 var granade = preload("res://Scenes/Collectables/granade_collectable.tscn")
 
 var health

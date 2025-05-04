@@ -11,6 +11,7 @@ var jogadas
 var attack_force
 
 func _ready() -> void:
+	Global.player = self
 	turnos = 1
 	health = 100
 	attack_force = 25

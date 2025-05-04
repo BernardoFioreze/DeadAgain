@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://og127qco5801"]
+[gd_scene load_steps=11 format=3 uid="uid://og127qco5801"]
 
 [ext_resource type="Script" uid="uid://d0108435p86po" path="res://Scripts/granade_collectable.gd" id="1_r3sss"]
 [ext_resource type="Texture2D" uid="uid://bam6rcfl0qbjg" path="res://Assets/Inventory/Items/Granade.png" id="1_yb70v"]
+[ext_resource type="Resource" uid="uid://7bofrcqb2o7e" path="res://Inventory/Items_resources/granade.tres" id="2_cocxl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yb70v"]
 atlas = ExtResource("1_yb70v")
@@ -150,6 +151,7 @@ _data = {
 [node name="Granade_collectable" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_r3sss")
+dropped_item = ExtResource("2_cocxl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+@export var dropped_item: InvItem
+
 func _ready() -> void:
 	drop_from_zombie()
 	
@@ -12,3 +14,4 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		$AnimationPlayer.play("fade")
 		await get_tree().create_timer(0.3).timeout
 		queue_free()
+		Global.player.collect(dropped_item)
