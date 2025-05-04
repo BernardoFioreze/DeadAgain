@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
 @onready var health_bar = $HealthBar
-@onready var zombie = $ZombieSprite
+@onready var zombie = $ZombieAnimatedSprite
+
+@export var dropped_item: InvItem
+var player = null
+
+var granade = preload("res://Scenes/Collectables/granade_collectable.tscn")
 
 var health
 var turnos
@@ -17,7 +22,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		print("Zombie")
 		_set_health(health - 25)
 		if health <= 0:
-			queue_free()
+			die()
 		
 func _on_mouse_entered() -> void:
 	zombie.modulate = Color(2,1,1,1)
@@ -34,4 +39,13 @@ func _set_health(value):
 func _get_attack_force():
 	return 
 	
+func die():
+	drop_item()
+	queue_free()
+	
+func drop_item():
+	var granade_instance = granade.instantiate()
+	granade_instance.global_position = $Marker2D.global_position
+	get_parent().add_child(granade_instance)
+	await get_tree().create_timer(0.0).timeout
 	

@@ -28,3 +28,6 @@ func _on_mouse_exited() -> void:
 	modulate = Color(1,1,1,1)
 	scale = Vector2(1,1)
 	
+func collect(item): 
+	inventory.insert(item)
+	
