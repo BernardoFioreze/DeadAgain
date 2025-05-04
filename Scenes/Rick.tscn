@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://di78jq0fsna0q"]
+[gd_scene load_steps=6 format=3 uid="uid://di78jq0fsna0q"]
 
 [ext_resource type="Script" uid="uid://qrsdaetgkc5r" path="res://Scripts/rick.gd" id="1_dbut8"]
-[ext_resource type="Texture2D" uid="uid://qdftbf1ic2vc" path="res://Assets/Sprite-Rick.png" id="1_ymxaj"]
+[ext_resource type="Texture2D" uid="uid://qdftbf1ic2vc" path="res://Assets/Sprites/Sprite-Rick.png" id="1_ymxaj"]
+[ext_resource type="Resource" uid="uid://bm6vgsrlgnp7c" path="res://Inventory/playerinv.tres" id="2_ncwlk"]
 [ext_resource type="PackedScene" uid="uid://srup1epjk72e" path="res://Scenes/Healthbar.tscn" id="3_dtu71"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88kja"]
@@ -11,6 +12,7 @@ height = 34.0
 [node name="Rick" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_dbut8")
+inventory = ExtResource("2_ncwlk")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ymxaj")

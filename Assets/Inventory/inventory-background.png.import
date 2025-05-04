@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qdftbf1ic2vc"
-path="res://.godot/imported/Sprite-Rick.png-b640902da594f62a1cd1d59e80e97bc8.ctex"
+uid="uid://cqvv0k84h3v53"
+path="res://.godot/imported/inventory-background.png-7c2bfa2758fd90be486703cc196d43b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite-Rick.png"
-dest_files=["res://.godot/imported/Sprite-Rick.png-b640902da594f62a1cd1d59e80e97bc8.ctex"]
+source_file="res://Assets/Inventory/inventory-background.png"
+dest_files=["res://.godot/imported/inventory-background.png-7c2bfa2758fd90be486703cc196d43b8.ctex"]
 
 [params]
 

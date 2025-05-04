@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k5h82u4goark"
-path="res://.godot/imported/Sprite-Zombie.png-9a84e6613c09b0154cb2eb58c1df5f10.ctex"
+uid="uid://qdftbf1ic2vc"
+path="res://.godot/imported/Sprite-Rick.png-efb65f7dc17eac8bebab76065dd04439.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite-Zombie.png"
-dest_files=["res://.godot/imported/Sprite-Zombie.png-9a84e6613c09b0154cb2eb58c1df5f10.ctex"]
+source_file="res://Assets/Sprites/Sprite-Rick.png"
+dest_files=["res://.godot/imported/Sprite-Rick.png-efb65f7dc17eac8bebab76065dd04439.ctex"]
 
 [params]
 

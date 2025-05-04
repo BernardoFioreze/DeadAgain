@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var inventory: Inv
+
 @onready var health_bar = $HealthBar
 @onready var rick = $Rick
 
