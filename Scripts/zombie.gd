@@ -17,6 +17,9 @@ func _ready() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		print("Zombie")
+		var item = Global.player.inventory.get_selected_item()
+		if item:
+			print(item.name)
 		_set_health(health - 25)
 		if health <= 0:
 			die()

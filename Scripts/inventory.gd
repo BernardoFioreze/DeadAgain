@@ -6,6 +6,8 @@ signal update
 
 @export var slots: Array[InvSlot]
 
+var selected_index: int = -1
+
 func insert(item: InvItem):
 	var itemslots = slots.filter(func(slot): return slot.item == item)
 	if !itemslots.is_empty():
@@ -16,3 +18,18 @@ func insert(item: InvItem):
 			emptyslots[0].item = item
 			emptyslots[0].quantidade = 1
 	update.emit()
+	
+func select(index: int) -> void:
+	if index >= 0 and index < slots.size():
+		selected_index = index
+		update.emit()
+		
+func get_selected_item() -> InvItem:
+	if selected_index >= 0 and selected_index < slots.size():
+		return slots[selected_index].item
+	return null
+
+func get_selected_slot() -> InvSlot:
+	if selected_index >= 0 and selected_index < slots.size():
+		return slots[selected_index]
+	return null

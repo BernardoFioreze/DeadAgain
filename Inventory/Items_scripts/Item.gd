@@ -2,7 +2,6 @@ class_name Item
 
 extends Node
 
-
 @export var id: String = ""
 @export var name_item: String = ""
 @export var texture: Texture2D
