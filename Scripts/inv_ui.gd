@@ -4,7 +4,6 @@ extends Control
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 var is_open = false
-var selected_index: int = -1
 
 func _ready() -> void:
 	inv.update.connect(update_slots)
@@ -40,3 +39,4 @@ func open():
 func close():
 	visible = false
 	is_open = false
+	inv.selected_index = -1
