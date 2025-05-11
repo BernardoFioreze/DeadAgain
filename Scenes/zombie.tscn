@@ -39,9 +39,11 @@ animations = [{
 radius = 14.0
 height = 34.0
 
-[node name="Zombie" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Zombie" type="CharacterBody2D" groups=["Enemy", "zombies"]]
 input_pickable = true
 script = ExtResource("1_n70j1")
+attack_force = 8
+health = 120
 
 [node name="ZombieAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y54wu")

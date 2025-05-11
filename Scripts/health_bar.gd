@@ -12,7 +12,6 @@ func _set_health(new_health):
 	
 	if health <= 0:
 		print("morreu")
-		queue_free()
 		
 	if health < prev_health:
 		timer.start()

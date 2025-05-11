@@ -13,6 +13,7 @@ height = 34.0
 input_pickable = true
 script = ExtResource("1_dbut8")
 inventory = ExtResource("2_ncwlk")
+health = 100
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ymxaj")
