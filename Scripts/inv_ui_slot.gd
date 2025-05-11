@@ -17,8 +17,11 @@ func update (slot: InvSlot, is_selected: bool = false):
 	else:
 		item_visual.visible = true
 		item_visual.texture = slot.item.texture
-		quantidade_label.visible = true
-		quantidade_label.text = str(slot.quantidade)
+		if slot.item.is_consumable():
+			quantidade_label.visible = true
+			quantidade_label.text = str(slot.quantidade)
+		else:
+			quantidade_label.visible = false
 	
 	$Slot.modulate = Color(0.6,0.7,1, 0.9) if is_selected else Color(1,1,1)
 
