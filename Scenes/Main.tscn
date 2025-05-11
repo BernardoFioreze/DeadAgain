@@ -19,7 +19,7 @@ expand_mode = 1
 
 [node name="Rick" parent="." groups=["Character"] instance=ExtResource("2_kln2b")]
 z_index = 1
-position = Vector2(-73, 16)
+position = Vector2(-101, -18)
 
 [node name="Zombie" parent="." instance=ExtResource("3_kln2b")]
 z_index = 1

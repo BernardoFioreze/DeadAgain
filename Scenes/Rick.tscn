@@ -15,7 +15,7 @@ script = ExtResource("1_dbut8")
 inventory = ExtResource("2_ncwlk")
 health = 100
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+[node name="RickAnimatedSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ymxaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

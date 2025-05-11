@@ -7,4 +7,7 @@
 script = ExtResource("1_jx430")
 name = "Granada"
 texture = ExtResource("2_rdwkr")
+item_type = "Attack"
+consumable = true
+intensity = 45
 metadata/_custom_type_script = "uid://7hhtx6fswij6"
