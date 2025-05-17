@@ -16,6 +16,7 @@ offset_right = 160.0
 offset_bottom = 90.0
 texture = ExtResource("2_v1gob")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Rick" parent="." groups=["Character"] instance=ExtResource("2_kln2b")]
 z_index = 1
