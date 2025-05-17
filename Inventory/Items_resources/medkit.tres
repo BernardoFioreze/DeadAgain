@@ -9,5 +9,5 @@ name = "MedKit"
 texture = ExtResource("2_igcon")
 item_type = "Heal"
 consumable = true
-intensity = 30
+intensity = 40
 metadata/_custom_type_script = "uid://7hhtx6fswij6"

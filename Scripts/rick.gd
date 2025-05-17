@@ -7,7 +7,6 @@ class_name Rick
 @onready var health_bar = $HealthBar
 @onready var rick = $RickAnimatedSprite
 
-
 func _ready() -> void:
 	Global.player = self
 	health_bar.init_health(health)
@@ -90,4 +89,3 @@ func _set_health(value: int):
 	if health <= 0:
 		print("Player died!")
 		queue_free()
-		

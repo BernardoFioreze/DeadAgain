@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cl62ownpr7q5h"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_7v5kh"]
+[ext_resource type="Texture2D" uid="uid://c7kf7wcsbupr6" path="res://Assets/Inventory/Items/Herb.png" id="2_6gwj0"]
+
+[resource]
+script = ExtResource("1_7v5kh")
+name = "herb"
+texture = ExtResource("2_6gwj0")
+item_type = "Receipt"
+consumable = true
+intensity = 0
+metadata/_custom_type_script = "uid://7hhtx6fswij6"

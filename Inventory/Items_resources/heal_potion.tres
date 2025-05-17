@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c5ko0ss3244sq"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_2nbgk"]
+[ext_resource type="Texture2D" uid="uid://ttfnok0g6d37" path="res://Assets/Inventory/Items/HealPotion.png" id="2_jdv7k"]
+
+[resource]
+script = ExtResource("1_2nbgk")
+name = "heal_potion"
+texture = ExtResource("2_jdv7k")
+item_type = "Heal"
+consumable = true
+intensity = 20
+metadata/_custom_type_script = "uid://7hhtx6fswij6"

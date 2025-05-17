@@ -54,25 +54,99 @@ func _get_drag_data(_at_position):
 	
 func _can_drop_data(_at_position, data):
 	return data.has("item") and data.has("index")
-
+	
 func _drop_data(_at_position, data):
 	if data.index == my_index:
-		return  
+		return
 
 	var inv = Global.player.inventory
 	var origem = inv.slots[data.index]
 	var destino = inv.slots[my_index]
 
+	var mover_tudo = Input.is_key_pressed(KEY_SHIFT)
+	var qtd_para_mover = origem.quantidade if mover_tudo else 1
 
-	var temp_item = destino.item
-	var temp_qtd = destino.quantidade
+	# Verificar receita
+	if origem.item != null and destino.item != null:
+		if origem.item.is_receipt_item() and destino.item.is_receipt_item():
+			var book = ReceiptBook.new()
+			var receipt_item = book.get_receipt(origem.item, destino.item)
 
-	destino.item = origem.item
-	destino.quantidade = origem.quantidade
+			if receipt_item != null:
+				var qtd_possivel = 1
 
-	origem.item = temp_item
-	origem.quantidade = temp_qtd
-	
+				if mover_tudo:
+					qtd_possivel = min(origem.quantidade, destino.quantidade)
+
+				var criados = 0
+
+				for i in range(qtd_possivel):
+					# 1. Tenta empilhar em um slot já existente com o mesmo item
+					var colocado = false
+					for s in inv.slots.size():
+						if inv.slots[s].item == receipt_item:
+							inv.slots[s].quantidade += 1
+							colocado = true
+							break
+
+					# 2. Se não achou, tenta colocar em um slot vazio
+					if not colocado:
+						for s in inv.slots.size():
+							if inv.slots[s].item == null:
+								inv.slots[s].item = receipt_item
+								inv.slots[s].quantidade = 1
+								colocado = true
+								break
+
+					# 3. Se não conseguiu nem empilhar nem colocar, para
+					if not colocado:
+						break
+
+					# 4. Consome os ingredientes
+					origem.quantidade -= 1
+					destino.quantidade -= 1
+					criados += 1
+
+					if origem.quantidade <= 0:
+						origem.item = null
+						origem.quantidade = 0
+					if destino.quantidade <= 0:
+						destino.item = null
+						destino.quantidade = 0
+
+				if criados > 0:
+					inv.update.emit()
+					return
+
+	# Mesmo item e empilhável
+	if destino.item == origem.item:
+		destino.quantidade += qtd_para_mover
+		origem.quantidade -= qtd_para_mover
+		if origem.quantidade <= 0:
+			origem.item = null
+			origem.quantidade = 0
+	else:
+		# Slot destino vazio — transfere parte ou tudo
+		if destino.item == null:
+			destino.item = origem.item
+			destino.quantidade = qtd_para_mover
+			origem.quantidade -= qtd_para_mover
+			if origem.quantidade <= 0:
+				origem.item = null
+				origem.quantidade = 0
+		else:
+			# Itens diferentes — troca completa
+			var temp_item = destino.item
+			var temp_qtd = destino.quantidade
+
+			destino.item = origem.item
+			destino.quantidade = origem.quantidade
+
+			origem.item = temp_item
+			origem.quantidade = temp_qtd
+
 	inv.select(my_index)
-
 	inv.update.emit()
+	
+func is_receipt(item1 : InvItem, item2: InvItem):
+	return

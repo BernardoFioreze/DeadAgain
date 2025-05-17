@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://whl3jlqj4t4f"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_qvxj6"]
+[ext_resource type="Texture2D" uid="uid://c7djjf64718x7" path="res://Assets/Inventory/Items/Flask.png" id="2_ndplm"]
+
+[resource]
+script = ExtResource("1_qvxj6")
+name = "flask"
+texture = ExtResource("2_ndplm")
+item_type = "Receipt"
+consumable = true
+intensity = 0
+metadata/_custom_type_script = "uid://7hhtx6fswij6"
