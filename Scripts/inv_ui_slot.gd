@@ -63,7 +63,7 @@ func _drop_data(_at_position, data):
 	var origem = inv.slots[data.index]
 	var destino = inv.slots[my_index]
 
-	var mover_tudo = Input.is_key_pressed(KEY_SHIFT)
+	var mover_tudo = !Input.is_key_pressed(KEY_CTRL)
 	var qtd_para_mover = origem.quantidade if mover_tudo else 1
 
 	# Verificar receita
