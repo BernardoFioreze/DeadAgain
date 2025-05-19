@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://d137to2wnoxmh"]
+
+[ext_resource type="Texture2D" uid="uid://bqp0euotx75db" path="res://Assets/Inventory/Turn.png" id="1_avlud"]
+[ext_resource type="Script" uid="uid://bxgyyje523mhq" path="res://Scripts/ui_turn.gd" id="1_ukldl"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ukldl")
+
+[node name="PlayerTurn" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_avlud")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerTurn2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00703125
+anchor_right = 0.00703125
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_avlud")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerTurn3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0140625
+anchor_right = 0.0140625
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_avlud")
+metadata/_edit_use_anchors_ = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://di78jq0fsna0q"]
+[gd_scene load_steps=7 format=3 uid="uid://di78jq0fsna0q"]
 
 [ext_resource type="Script" uid="uid://qrsdaetgkc5r" path="res://Scripts/rick.gd" id="1_dbut8"]
 [ext_resource type="Texture2D" uid="uid://qdftbf1ic2vc" path="res://Assets/Sprites/Sprite-Rick.png" id="1_ymxaj"]
 [ext_resource type="Resource" uid="uid://bm6vgsrlgnp7c" path="res://Inventory/playerinv.tres" id="2_ncwlk"]
 [ext_resource type="PackedScene" uid="uid://srup1epjk72e" path="res://Scenes/Healthbar.tscn" id="3_dtu71"]
+[ext_resource type="PackedScene" uid="uid://d137to2wnoxmh" path="res://Scenes/UI/ui_turn.tscn" id="5_5juja"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88kja"]
 radius = 14.0
@@ -27,6 +28,12 @@ offset_top = -18.0
 offset_right = 228.0
 offset_bottom = 9.0
 scale = Vector2(0.1, 0.1)
+
+[node name="TurnUi" parent="." instance=ExtResource("5_5juja")]
+offset_left = -13.0
+offset_top = -27.0
+offset_right = -13.0
+offset_bottom = -27.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
