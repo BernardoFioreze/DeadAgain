@@ -8,7 +8,7 @@
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_momfn")
-next_room_path = "E:/GitHub/DeadAgain/DeadAgain/Scenes/Rooms/Room1.tscn"
+next_room_path = "res://Scenes/Rooms/Room1.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -160.0

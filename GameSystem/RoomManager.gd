@@ -10,6 +10,7 @@ func _ready() -> void:
 func change_room(room_path: String, room):
 	current_room = room
 	save_player_state()
+	
 	var new_room = load(room_path).instantiate()
 	get_tree().root.add_child(new_room)
 	
@@ -17,7 +18,7 @@ func change_room(room_path: String, room):
 		current_room.queue_free()
 		
 	current_room = new_room
-	restore_player_state() 
+	restore_player_state()
 	
 	
 func save_player_state():
