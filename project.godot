@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dead Again"
-run/main_scene="uid://dlft2yena0ndb"
+run/main_scene="uid://bh7m4gdig84iu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
