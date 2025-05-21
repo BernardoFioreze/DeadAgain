@@ -11,6 +11,8 @@ var droppable_items: Array = [
 	load("res://Scripts/granade_collectable.gd")
 	]
 var father
+var ui_turn
+
 
 func initialize(player_ref: CharacterBody2D, scene_tree: Object, zombies_ref: Array, father_scene):
 	Global.turn_manager = self
@@ -18,14 +20,14 @@ func initialize(player_ref: CharacterBody2D, scene_tree: Object, zombies_ref: Ar
 	tree = scene_tree
 	zombies = zombies_ref
 	father = father_scene
+	ui_turn = tree.root.find_child("ui_turn", true, false)
 	start_turn()
-
-
 
 func start_turn():
 	match turn:
 		Turn.PLAYER:
 			player_actions_left = 3
+			ui_turn.update_turn_opacity(player_actions_left)
 			print("Player's Turn!")
 		Turn.ZOMBIE:
 			print("Zombies' Turn!")
@@ -40,9 +42,10 @@ func perform_zombie_actions():
 	next_turn()
 
 func player_used_action():
-	
 	player_actions_left -= 1
 	print("Actions left: ", player_actions_left)
+	
+	ui_turn.update_turn_opacity(player_actions_left)
 	
 	if player_actions_left <= 0:
 		next_turn()
