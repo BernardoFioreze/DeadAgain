@@ -27,7 +27,8 @@ func start_turn():
 	match turn:
 		Turn.PLAYER:
 			player_actions_left = 3
-			ui_turn.update_turn_opacity(player_actions_left)
+			if(is_instance_valid(ui_turn)):
+				ui_turn.update_turn_opacity(player_actions_left)
 			print("Player's Turn!")
 		Turn.ZOMBIE:
 			print("Zombies' Turn!")
@@ -45,7 +46,8 @@ func player_used_action():
 	player_actions_left -= 1
 	print("Actions left: ", player_actions_left)
 	
-	ui_turn.update_turn_opacity(player_actions_left)
+	if(is_instance_valid(ui_turn)):
+		ui_turn.update_turn_opacity(player_actions_left)
 	
 	if player_actions_left <= 0:
 		next_turn()
@@ -59,3 +61,4 @@ func get_zombies() -> Array:
 
 func get_droppable_items() -> Array:
 	return droppable_items
+	

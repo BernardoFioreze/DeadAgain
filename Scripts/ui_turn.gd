@@ -15,7 +15,8 @@ func _ready():
 func update_turn_opacity(actions_left: int):
 	for i in range(action_icons.size()):
 		var icon = action_icons[i]
-		var visible_actions = action_icons.size()
 		
-		var alpha := 1.0 if i < actions_left else 0.2
-		icon.modulate.a = alpha
+		if i < actions_left:
+			icon.modulate = Color(1, 1, 1, 1)
+		else:
+			icon.modulate = Color(1.85, 5.25, 2, 0.6)

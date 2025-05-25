@@ -30,6 +30,7 @@ offset_bottom = 9.0
 scale = Vector2(0.1, 0.1)
 
 [node name="ui_turn" parent="." instance=ExtResource("5_5juja")]
+unique_name_in_owner = true
 offset_left = -13.0
 offset_top = -27.0
 offset_right = -13.0
