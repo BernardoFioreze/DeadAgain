@@ -21,6 +21,7 @@ func initialize(player_ref: CharacterBody2D, scene_tree: Object, zombies_ref: Ar
 	zombies = zombies_ref
 	father = father_scene
 	ui_turn = tree.root.find_child("ui_turn", true, false)
+	print(ui_turn)
 	start_turn()
 
 func start_turn():

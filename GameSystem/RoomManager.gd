@@ -32,3 +32,5 @@ func restore_player_state():
 	var player = current_room.player
 	player.health = player_state["health"]
 	player.inventory = player_state["inventory"] 
+	player.health_bar.health = player_state["health"]
+	
