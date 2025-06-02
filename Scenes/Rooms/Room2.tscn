@@ -18,7 +18,7 @@ offset_bottom = 90.0
 texture = ExtResource("2_cuhup")
 expand_mode = 1
 
-[node name="Rick" parent="." instance=ExtResource("3_0lgib")]
+[node name="Rick" parent="." groups=["Character"] instance=ExtResource("3_0lgib")]
 position = Vector2(-113, -26)
 
 [node name="Zombie" parent="." instance=ExtResource("4_ut3n5")]
