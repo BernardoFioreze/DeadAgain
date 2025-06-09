@@ -47,8 +47,8 @@ func attack():
 	
 func _on_mouse_entered() -> void:
 	zombie.modulate = Color(2,1,1,1)
-	scale = Vector2(1.05,1.05)
+	scale = Vector2(4.20,4.20)
 
 func _on_mouse_exited() -> void:
 	zombie.modulate = Color(1,1,1,1)
-	scale = Vector2(1,1)
+	scale = Vector2(4,4)

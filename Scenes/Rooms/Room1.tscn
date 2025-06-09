@@ -11,29 +11,26 @@ script = ExtResource("1_kdtvj")
 next_room_path = "res://Scenes/Rooms/Room2.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -160.0
-offset_top = -90.0
-offset_right = 160.0
-offset_bottom = 10.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1281.0
+offset_bottom = 401.0
 texture = ExtResource("2_fo1vw")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Rick" parent="." groups=["Character"] instance=ExtResource("3_j3utp")]
 z_index = 1
-position = Vector2(-101, -18)
+position = Vector2(261, 265)
 
 [node name="Zombie" parent="." instance=ExtResource("4_kdje2")]
 z_index = 1
-position = Vector2(67, -51)
+position = Vector2(922, 166)
 
 [node name="Zombie3" parent="." instance=ExtResource("4_kdje2")]
-position = Vector2(116, -36)
+position = Vector2(1081, 269)
 
 [node name="Zombie2" parent="." instance=ExtResource("4_kdje2")]
-position = Vector2(26, -32)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+position = Vector2(752, 286)
 
 [node name="UI_Info" parent="." instance=ExtResource("5_4uh16")]

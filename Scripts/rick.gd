@@ -65,11 +65,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _on_mouse_entered() -> void:
 	rick.modulate = Color(2,1,1,1)
-	scale = Vector2(1.05,1.05)
+	scale = Vector2(4.20,4.20)
 
 func _on_mouse_exited() -> void:
 	rick.modulate = Color(1,1,1,1)
-	scale = Vector2(1,1)
+	scale = Vector2(4,4)
 	
 func collect(item): 
 	inventory.insert(item)
