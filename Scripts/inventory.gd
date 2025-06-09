@@ -35,13 +35,11 @@ func get_selected_slot() -> InvSlot:
 	return null
 
 func consume() -> void:
-	# Decrease item quantity and remove if no quantity left
 	var selected_slot = get_selected_slot()
 	if selected_slot:
 		selected_slot.quantidade -= 1
 		if selected_slot.quantidade <= 0:
-			selected_slot.item = null  # Remove item from the slot
-			selected_slot.quantidade = 0  # Ensure quantity is reset
+			selected_slot.item = null 
+			selected_slot.quantidade = 0
 
-	update.emit()  # Emit update signal to refresh inventory
-	
+	update.emit() 

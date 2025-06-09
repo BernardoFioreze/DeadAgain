@@ -4,13 +4,16 @@ extends Panel
 @onready var quantidade_label: Label = $CenterContainer/Panel/Label
 
 signal slot_clicked(slot_index: int)
+signal drop_finished
 
 var my_index: int
+var inv_ui: InvUi
 
-func set_index(index: int):
+func set_index(index: int, inv_ui_ref: InvUi):
 	my_index = index
+	inv_ui = inv_ui_ref
 
-func update (slot: InvSlot, is_selected: bool = false):
+func update(slot: InvSlot, is_selected: bool = false, combinable: bool = false):
 	if !slot.item:
 		item_visual.visible = false
 		quantidade_label.visible = false
@@ -22,9 +25,13 @@ func update (slot: InvSlot, is_selected: bool = false):
 			quantidade_label.text = str(slot.quantidade)
 		else:
 			quantidade_label.visible = false
-	
-	$Slot.modulate = Color(0.6,0.7,1, 0.9) if is_selected else Color(1,1,1)
 
+	if is_selected:
+		$Slot.modulate = Color(0.6, 0.7, 1, 0.9)  # azul: slot selecionado
+	elif combinable:
+		$Slot.modulate = Color(0.0, 0.6, 0.0, 0.9)  # verde médio
+	else:
+		$Slot.modulate = Color(1, 1, 1)  # padrão
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -50,6 +57,9 @@ func _get_drag_data(_at_position):
 	preview.modulate = Color(1, 1, 1, 0.7)
 
 	set_drag_preview(preview)
+	
+	inv_ui.mark_combinable_slots(slot_info.item)
+	
 	return slot_data
 	
 func _can_drop_data(_at_position, data):
@@ -57,6 +67,7 @@ func _can_drop_data(_at_position, data):
 	
 func _drop_data(_at_position, data):
 	if data.index == my_index:
+		drop_finished.emit()
 		return
 
 	var inv = Global.player.inventory
@@ -147,6 +158,7 @@ func _drop_data(_at_position, data):
 
 	inv.select(my_index)
 	inv.update.emit()
+	drop_finished.emit()
 	
 func is_receipt(item1 : InvItem, item2: InvItem):
 	return
