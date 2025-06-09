@@ -19,6 +19,9 @@ func initialize(player_ref: CharacterBody2D, scene_tree: Object, zombies_ref: Ar
 	player = player_ref
 	tree = scene_tree
 	zombies = zombies_ref
+	for zombie in zombies:
+		if is_instance_valid(zombie):
+			zombie.zombie_died.connect(_on_zombie_died)
 	father = father_scene
 	ui_turn = tree.root.find_child("ui_turn", true, false)
 	print(ui_turn)
@@ -44,8 +47,10 @@ func perform_zombie_actions():
 	next_turn()
 
 func player_used_action():
-	player_actions_left -= 1
-	print("Actions left: ", player_actions_left)
+	if zombies.is_empty():
+		player_actions_left = 3
+	else:
+		player_actions_left -= 1
 	
 	if(is_instance_valid(ui_turn)):
 		ui_turn.update_turn_opacity(player_actions_left)
@@ -62,4 +67,7 @@ func get_zombies() -> Array:
 
 func get_droppable_items() -> Array:
 	return droppable_items
-	
+
+func _on_zombie_died(z: Zombie):
+	if zombies.has(z):
+		zombies.erase(z)

@@ -8,6 +8,7 @@ class_name Zombie
 @export var health : int
 
 signal clicked(zombie)
+signal zombie_died(zombie)
 
 var granade = preload("res://Scenes/Collectables/granade_collectable.tscn")
 
@@ -29,6 +30,7 @@ func _set_health(value: int):
 
 func die():
 	print("Zombie died!")
+	zombie_died.emit(self)
 	drop_item()
 	queue_free()
 
