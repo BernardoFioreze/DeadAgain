@@ -20,7 +20,7 @@ expand_mode = 1
 position = Vector2(243, 237)
 
 [node name="Zombie" parent="." instance=ExtResource("4_ut3n5")]
-position = Vector2(839, 261)
+position = Vector2(799, 178)
 
 [node name="Zombie2" parent="." instance=ExtResource("4_ut3n5")]
 position = Vector2(1088, 210)
