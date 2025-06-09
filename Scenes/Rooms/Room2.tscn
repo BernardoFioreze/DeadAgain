@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2828m24fkdpp"]
 
-[ext_resource type="Script" uid="uid://bg03vdoq8pg0x" path="res://Scripts/room.gd" id="1_momfn"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_momfn"]
 [ext_resource type="Texture2D" uid="uid://b6xio3jq0q8k3" path="res://Assets/Backgrounds/CaveBackground.jpg" id="2_cuhup"]
 [ext_resource type="PackedScene" uid="uid://di78jq0fsna0q" path="res://Scenes/Rick.tscn" id="3_0lgib"]
 [ext_resource type="PackedScene" uid="uid://cnhlmolxqm83c" path="res://Scenes/zombie.tscn" id="4_ut3n5"]
@@ -14,7 +14,7 @@ next_room_path = "res://Scenes/Rooms/Room1.tscn"
 offset_left = -160.0
 offset_top = -90.0
 offset_right = 160.0
-offset_bottom = 90.0
+offset_bottom = 10.0
 texture = ExtResource("2_cuhup")
 expand_mode = 1
 
@@ -25,7 +25,7 @@ position = Vector2(-113, -26)
 position = Vector2(21, -24)
 
 [node name="Zombie2" parent="." instance=ExtResource("4_ut3n5")]
-position = Vector2(62, 39)
+position = Vector2(110, -45)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
