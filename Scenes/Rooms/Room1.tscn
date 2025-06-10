@@ -27,10 +27,10 @@ position = Vector2(261, 265)
 z_index = 1
 position = Vector2(922, 166)
 
-[node name="Zombie3" parent="." instance=ExtResource("4_kdje2")]
-position = Vector2(1081, 269)
+[node name="UI_Info" parent="." instance=ExtResource("5_4uh16")]
 
 [node name="Zombie2" parent="." instance=ExtResource("4_kdje2")]
-position = Vector2(750, 236)
+position = Vector2(731, 226)
 
-[node name="UI_Info" parent="." instance=ExtResource("5_4uh16")]
+[node name="Zombie3" parent="." instance=ExtResource("4_kdje2")]
+position = Vector2(1094, 267)

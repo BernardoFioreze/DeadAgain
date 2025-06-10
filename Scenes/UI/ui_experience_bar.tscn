@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkw2dykuyn7uu"]
 
 [ext_resource type="Script" uid="uid://dhq1rr0hs6vl6" path="res://Scripts/ui_experience_bar.gd" id="1_p5ov4"]
-[ext_resource type="FontFile" path="CHILLER.TTF" id="2_y22pu"]
+[ext_resource type="FontFile" path="C" id="2_y22pu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b5y4"]
 bg_color = Color(0, 0, 0, 1)

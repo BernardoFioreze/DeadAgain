@@ -9,9 +9,6 @@ func _set_health(new_health):
 	var prev_health = health
 	health = min(max_value, new_health)
 	value = health
-	
-	if health <= 0:
-		print("morreu")
 		
 	if health < prev_health:
 		timer.start()
@@ -24,7 +21,6 @@ func init_health(_health):
 	value = health
 	damage_bar.max_value = health
 	damage_bar.value = health
-
 
 func _on_timer_timeout() -> void:
 	damage_bar.value = health

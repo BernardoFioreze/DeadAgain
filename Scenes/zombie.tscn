@@ -50,7 +50,6 @@ health = 80
 sprite_frames = SubResource("SpriteFrames_y54wu")
 animation = &"idle"
 autoplay = "idle"
-frame = 1
 frame_progress = 0.613641
 flip_h = true
 
