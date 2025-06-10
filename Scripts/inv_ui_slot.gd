@@ -29,7 +29,7 @@ func update(slot: InvSlot, is_selected: bool = false, combinable: bool = false):
 	if is_selected:
 		$Slot.modulate = Color(0.6, 0.7, 1, 0.9)  # azul: slot selecionado
 	elif combinable:
-		$Slot.modulate = Color(0.0, 0.6, 0.0, 0.9)  # verde médio
+		$Slot.modulate = Color(0.6, 0.0, 1.0, 0.9)  # verde médio
 	else:
 		$Slot.modulate = Color(1, 1, 1)  # padrão
 

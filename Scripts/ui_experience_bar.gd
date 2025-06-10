@@ -22,5 +22,5 @@ func _on_character_experience_gained(growth_data):
 	update_level_label()
 	
 func update_level_label():
-	label.text = str(Global.player.level)
+	label.text = "Lv. " + str(Global.player.level)
 	

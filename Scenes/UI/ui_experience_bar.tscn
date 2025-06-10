@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkw2dykuyn7uu"]
 
 [ext_resource type="Script" uid="uid://dhq1rr0hs6vl6" path="res://Scripts/ui_experience_bar.gd" id="1_p5ov4"]
-[ext_resource type="FontFile" path="C" id="2_y22pu"]
+[ext_resource type="FontFile" uid="uid://biqq5tj2cqycu" path="res://Assets/Fonts/COURBD.TTF" id="2_y22pu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b5y4"]
 bg_color = Color(0, 0, 0, 1)
@@ -35,12 +35,11 @@ script = ExtResource("1_p5ov4")
 
 [node name="Level" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -25.0
-offset_right = 600.0
-offset_bottom = 16.0
+offset_left = 608.0
+offset_right = 651.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_y22pu")
 theme_override_font_sizes/font_size = 30
-text = "99"
-horizontal_alignment = 1
+text = "Lv. 99"
 vertical_alignment = 1
