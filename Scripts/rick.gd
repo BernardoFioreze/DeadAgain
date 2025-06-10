@@ -4,8 +4,18 @@ class_name Rick
 @export var inventory: Inv
 @export var health: int
 
+@export var level: int = 1
+
 @onready var health_bar = $HealthBar
 @onready var rick = $RickAnimatedSprite
+@onready var max_health = health
+
+signal leveled_up()
+signal experience_gained(growth_data)
+
+var experience = 0
+var experience_total = 0
+var experience_required = get_required_xp(level + 1)
 
 func _ready() -> void:
 	Global.player = self
@@ -85,7 +95,29 @@ func heal(heal: int):
 
 func _set_health(value: int):
 	health = max(value, 0)
+	health = min(value, max_health)
 	health_bar.health = health
 	if health <= 0:
 		print("Player died!")
 		queue_free()
+		
+func get_required_xp(level):
+	return round(pow(level, 1.8) + level * 4)
+
+func gain_experience(amount):
+	experience_total += amount
+	experience += amount
+	var growth_data = []
+	while experience >= experience_required:
+		experience -= experience_required
+		growth_data.append([experience_required, experience_required])
+		level_up()
+	growth_data.append([experience, experience_required])
+	experience_gained.emit(growth_data)
+		
+func level_up():
+	level += 1
+	experience_required = get_required_xp(level + 1)
+	_set_health(max_health)
+	leveled_up.emit()
+	

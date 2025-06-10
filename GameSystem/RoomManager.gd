@@ -25,7 +25,8 @@ func save_player_state():
 	var player = current_room.player
 	player_state = {
 		"health": player.health,
-		"inventory": player.inventory
+		"inventory": player.inventory,
+		"experience_total": player.experience_total,
 	}
 
 func restore_player_state():
@@ -33,4 +34,4 @@ func restore_player_state():
 	player.health = player_state["health"]
 	player.inventory = player_state["inventory"] 
 	player.health_bar.health = player_state["health"]
-	
+	player.gain_experience(player_state["experience_total"])

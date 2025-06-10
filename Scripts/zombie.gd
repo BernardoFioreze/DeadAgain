@@ -33,6 +33,7 @@ func die():
 	zombie_died.emit(self)
 	drop_item()
 	queue_free()
+	Global.player.gain_experience(8)
 
 func drop_item():
 	var granade_instance = granade.instantiate()
