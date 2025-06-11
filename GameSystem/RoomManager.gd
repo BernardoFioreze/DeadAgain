@@ -35,3 +35,9 @@ func restore_player_state():
 	player.inventory = player_state["inventory"] 
 	player.health_bar.health = player_state["health"]
 	player.gain_experience(player_state["experience_total"])
+	
+func player_dead() -> void:
+	var death_scene = ResourceLoader.load("res://Scenes/UI/death_scene_place_holder.tscn")
+	var death_instance = death_scene.instantiate()
+	get_tree().root.add_child(death_instance)
+	print("end")

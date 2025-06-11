@@ -99,7 +99,7 @@ func _set_health(value: int):
 	health_bar.health = health
 	if health <= 0:
 		print("Player died!")
-		queue_free()
+		Global.room_manager.player_dead()
 		
 func get_required_xp(level):
 	return round(pow(level, 1.8) + level * 4)
