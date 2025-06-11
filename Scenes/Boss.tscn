@@ -64,7 +64,7 @@ bg_color = Color(1, 1, 1, 1)
 scale = Vector2(8, 8)
 input_pickable = true
 script = ExtResource("4_j5nlm")
-attack_force = 30
+attack_force = 15
 health = 200
 
 [node name="ZombieAnimatedSprite" type="AnimatedSprite2D" parent="."]

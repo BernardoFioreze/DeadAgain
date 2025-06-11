@@ -43,7 +43,7 @@ height = 34.0
 scale = Vector2(4, 4)
 input_pickable = true
 script = ExtResource("1_n70j1")
-attack_force = 20
+attack_force = 8
 health = 80
 
 [node name="ZombieAnimatedSprite" type="AnimatedSprite2D" parent="."]
