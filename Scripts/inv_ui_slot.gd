@@ -13,7 +13,7 @@ func set_index(index: int, inv_ui_ref: InvUi):
 	my_index = index
 	inv_ui = inv_ui_ref
 
-func update(slot: InvSlot, is_selected: bool = false, combinable: bool = false):
+func update(slot: InvSlot, is_selected: bool = false, combinable: bool = false, highlight_ammo: bool = false):
 	if !slot.item:
 		item_visual.visible = false
 		quantidade_label.visible = false
@@ -26,13 +26,16 @@ func update(slot: InvSlot, is_selected: bool = false, combinable: bool = false):
 		else:
 			quantidade_label.visible = false
 
-	if is_selected:
-		$Slot.modulate = Color(0.6, 0.7, 1, 0.9)  # azul: slot selecionado
+	# Controle de cor:
+	if highlight_ammo:
+		$Slot.modulate = Color(1, 0.85, 0.1, 0.9)  # amarelo para munição disponível
+	elif is_selected:
+		$Slot.modulate = Color(0.6, 0.7, 1, 0.9)  # azul para selecionado
 	elif combinable:
-		$Slot.modulate = Color(0.6, 0.0, 1.0, 0.9)  # roxo
+		$Slot.modulate = Color(0.6, 0.0, 1.0, 0.9)  # roxo para combinável
 	else:
-		$Slot.modulate = Color(1, 1, 1)  # padrão
-
+		$Slot.modulate = Color(1, 1, 1)
+		
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		emit_signal("slot_clicked", my_index)

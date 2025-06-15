@@ -15,14 +15,23 @@ func _ready() -> void:
 	visible = true
 	
 func update_slots(combinable_item: InvItem = null):
+	var selected_item = inv.get_selected_item()
+	var required_ammo: InvItem = null
+
+	if selected_item and selected_item.requires_ammo():
+		required_ammo = selected_item.get_required_ammo()
+
 	for i in range(min(inv.slots.size(), slots.size())):
 		var combinable := false
 		if combinable_item and inv.slots[i].item:
 			var book = ReceiptBook.new()
 			combinable = book.get_receipt(inv.slots[i].item, combinable_item) != null
 
-		slots[i].update(inv.slots[i], i == inv.selected_index, combinable)
+		var highlight_ammo := false
+		if required_ammo and inv.slots[i].item == required_ammo and inv.slots[i].quantidade > 0:
+			highlight_ammo = true
 
+		slots[i].update(inv.slots[i], i == inv.selected_index, combinable, highlight_ammo)
 		
 func _on_slot_clicked(index: int):
 	inv.select(index)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=4 format=3 uid="uid://br2fll54p06vd"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_th48x"]
+[ext_resource type="Resource" uid="uid://bej5g4ue7i4nn" path="res://Inventory/Items_resources/sniperAmmo.tres" id="1_uwqsr"]
+[ext_resource type="Texture2D" uid="uid://fu85qcbbqqq3" path="res://Assets/Inventory/Items/Sniper.png" id="2_uwqsr"]
+
+[resource]
+script = ExtResource("1_th48x")
+name = "sniper"
+texture = ExtResource("2_uwqsr")
+item_type = "Attack"
+consumable = false
+intensity = 50
+areaDamage = false
+requiresAmmo = true
+missPercentage = 0.0
+requiredAmmo = ExtResource("1_uwqsr")
+metadata/_custom_type_script = "uid://7hhtx6fswij6"

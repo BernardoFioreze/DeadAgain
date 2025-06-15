@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bej5g4ue7i4nn"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_w1kkl"]
+[ext_resource type="Texture2D" uid="uid://due28rabk3ndf" path="res://Assets/Inventory/Items/SniperAmmo.png" id="2_h21vw"]
+
+[resource]
+script = ExtResource("1_w1kkl")
+name = "sniperAmmo"
+texture = ExtResource("2_h21vw")
+item_type = "Receipt"
+consumable = true
+intensity = 0
+areaDamage = false
+requiresAmmo = false
+missPercentage = 0.0
+metadata/_custom_type_script = "uid://7hhtx6fswij6"
