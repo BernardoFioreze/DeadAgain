@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b0bbbcxxfybg"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_bm7xe"]
+[ext_resource type="Texture2D" uid="uid://0lum60van63x" path="res://Assets/Inventory/Items/RPGAmmo.png" id="2_bwvwr"]
+
+[resource]
+script = ExtResource("1_bm7xe")
+name = "rpgAmmo"
+texture = ExtResource("2_bwvwr")
+item_type = "Receipt"
+consumable = true
+intensity = 0
+areaDamage = false
+metadata/_custom_type_script = "uid://7hhtx6fswij6"

@@ -10,4 +10,7 @@ texture = ExtResource("2_kcqu1")
 item_type = "Attack"
 consumable = false
 intensity = 20
+areaDamage = false
+requiresAmmo = false
+missPercentage = 0.25
 metadata/_custom_type_script = "uid://7hhtx6fswij6"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=4 format=3 uid="uid://der3a5jrdw3kh"]
+
+[ext_resource type="Resource" uid="uid://b0bbbcxxfybg" path="res://Inventory/Items_resources/rpgAmmo.tres" id="1_fqb7y"]
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_jwccl"]
+[ext_resource type="Texture2D" uid="uid://lu1kundw7l8x" path="res://Assets/Inventory/Items/RPG.png" id="2_fqb7y"]
+
+[resource]
+script = ExtResource("1_jwccl")
+name = "rpg"
+texture = ExtResource("2_fqb7y")
+item_type = "Attack"
+consumable = false
+intensity = 80
+areaDamage = true
+requiresAmmo = true
+missPercentage = 0.0
+requiredAmmo = ExtResource("1_fqb7y")
+metadata/_custom_type_script = "uid://7hhtx6fswij6"

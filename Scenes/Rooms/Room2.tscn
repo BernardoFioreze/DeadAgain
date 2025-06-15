@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2828m24fkdpp"]
 
-[ext_resource type="Script" uid="uid://bg03vdoq8pg0x" path="res://Scripts/room.gd" id="1_momfn"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_momfn"]
 [ext_resource type="Texture2D" uid="uid://b6xio3jq0q8k3" path="res://Assets/Backgrounds/CaveBackground.jpg" id="2_cuhup"]
 [ext_resource type="PackedScene" uid="uid://di78jq0fsna0q" path="res://Scenes/Rick.tscn" id="3_0lgib"]
 [ext_resource type="PackedScene" uid="uid://cnhlmolxqm83c" path="res://Scenes/zombie.tscn" id="4_ut3n5"]

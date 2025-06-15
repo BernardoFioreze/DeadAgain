@@ -10,4 +10,5 @@ texture = ExtResource("2_rdwkr")
 item_type = "Attack"
 consumable = true
 intensity = 45
+areaDamage = true
 metadata/_custom_type_script = "uid://7hhtx6fswij6"

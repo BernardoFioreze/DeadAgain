@@ -43,3 +43,19 @@ func consume() -> void:
 			selected_slot.quantidade = 0
 
 	update.emit() 
+
+func consume_item(item_to_consume: InvItem) -> void:
+	for slot in slots:
+		if slot.item == item_to_consume and slot.quantidade > 0:
+			slot.quantidade -= 1
+			if slot.quantidade <= 0:
+				slot.item = null 
+				slot.quantidade = 0
+			update.emit()
+			return
+	
+func has_item(item_to_find: InvItem) -> bool:
+	for slot in slots:
+		if slot.item == item_to_find and slot.quantidade > 0:
+			return true
+	return false

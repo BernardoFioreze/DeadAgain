@@ -45,7 +45,26 @@ func _on_zombie_clicked(zombie: Zombie):
 	if selected_item.is_consumable():
 		inventory.consume()
 		
-	zombie.take_damage(selected_item.get_intensity())
+	if selected_item.requires_ammo():
+		var ammo_id = selected_item.get_required_ammo()
+		if inventory.has_item(ammo_id):
+			inventory.consume_item(ammo_id)
+		else:
+			print("No ammo")
+			return
+			
+		
+	if 1.0 - selected_item.get_miss_percentage() > randf():
+		zombie.take_damage(selected_item.get_intensity())
+		
+		if selected_item.is_area_damage():
+			for z in get_tree().get_nodes_in_group("zombies"):
+				if z != zombie:
+					z.take_damage(selected_item.get_intensity() * 0.3)
+			suffer_damage(selected_item.get_intensity() * 0.1)
+	else:
+		print("Errou o ataque")
+	
 	Global.turn_manager.player_used_action()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
