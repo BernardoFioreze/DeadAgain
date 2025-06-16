@@ -59,3 +59,10 @@ func has_item(item_to_find: InvItem) -> bool:
 		if slot.item == item_to_find and slot.quantidade > 0:
 			return true
 	return false
+	
+func is_full() -> bool:
+	for slot in slots:
+		if slot.item == null:
+			return false
+	return true
+	

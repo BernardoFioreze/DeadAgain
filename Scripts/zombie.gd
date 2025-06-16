@@ -13,8 +13,11 @@ signal zombie_died(zombie)
 
 var droppable_items: Array = [
 	preload("res://Scenes/Collectables/granade_collectable.tscn"),
-	preload("res://Scenes/Collectables/sniperAmmo_collectable.tscn"),
-	preload("res://Scenes/Collectables/shotgunAmmo_collectable.tscn")
+	preload("res://Scenes/Collectables/sniperCase_collectable.tscn"),
+	preload("res://Scenes/Collectables/shotgunCase_collectable.tscn"),
+	preload("res://Scenes/Collectables/gunpowder_collectable.tscn"),
+	preload("res://Scenes/Collectables/flask_collectable.tscn"),
+	preload("res://Scenes/Collectables/herb_collectable.tscn"),
 ]
 
 func _ready() -> void:
@@ -22,6 +25,8 @@ func _ready() -> void:
 	if is_boss:
 		droppable_items.clear()
 		droppable_items.append(preload("res://Scenes/Collectables/rpgAmmo_collectable.tscn"))		
+		droppable_items.append(preload("res://Scenes/Collectables/sniperAmmo_collectable.tscn"))
+		droppable_items.append(preload("res://Scenes/Collectables/shotgunAmmo_collectable.tscn"))
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:

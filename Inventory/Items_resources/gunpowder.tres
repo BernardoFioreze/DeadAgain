@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b61duayecsxky"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_wvl2t"]
+[ext_resource type="Texture2D" uid="uid://46r015ru56cr" path="res://Assets/Inventory/Items/Gunpowder.png" id="2_m458c"]
+
+[resource]
+script = ExtResource("1_wvl2t")
+name = "gunpowder"
+texture = ExtResource("2_m458c")
+item_type = "Receipt"
+consumable = true
+intensity = 0
+areaDamage = false
+requiresAmmo = false
+missPercentage = 0.0
+metadata/_custom_type_script = "uid://7hhtx6fswij6"
