@@ -6,14 +6,22 @@ class_name Zombie
 
 @export var attack_force: int
 @export var health : int
+@export var is_boss: bool
 
 signal clicked(zombie)
 signal zombie_died(zombie)
 
-var granade = preload("res://Scenes/Collectables/granade_collectable.tscn")
+var droppable_items: Array = [
+	preload("res://Scenes/Collectables/granade_collectable.tscn"),
+	preload("res://Scenes/Collectables/sniperAmmo_collectable.tscn"),
+	preload("res://Scenes/Collectables/shotgunAmmo_collectable.tscn")
+]
 
 func _ready() -> void:
 	health_bar.init_health(health)
+	if is_boss:
+		droppable_items.clear()
+		droppable_items.append(preload("res://Scenes/Collectables/rpgAmmo_collectable.tscn"))		
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -31,14 +39,23 @@ func _set_health(value: int):
 func die():
 	print("Zombie died!")
 	zombie_died.emit(self)
-	drop_item()
+	drop_random_item()
 	queue_free()
 	Global.player.gain_experience(8)
 
-func drop_item():
-	var granade_instance = granade.instantiate()
-	granade_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(granade_instance)
+func drop_random_item():
+	if !Global.turn_manager:
+		return
+	
+	if droppable_items.is_empty():
+		return
+		
+	var index = randi() % droppable_items.size()
+	
+	var item_scene = droppable_items[index]
+	var item_instance = item_scene.instantiate()
+	item_instance.global_position = $Marker2D.global_position
+	get_parent().add_child(item_instance)
 
 func take_action():
 	if is_instance_valid(Global.player):

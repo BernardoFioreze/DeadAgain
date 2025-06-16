@@ -66,6 +66,7 @@ input_pickable = true
 script = ExtResource("4_j5nlm")
 attack_force = 15
 health = 200
+is_boss = true
 
 [node name="ZombieAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ouxnj")

@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=26 format=3 uid="uid://bm6vgsrlgnp7c"]
+[gd_resource type="Resource" script_class="Inv" load_steps=25 format=3 uid="uid://bm6vgsrlgnp7c"]
 
 [ext_resource type="Script" uid="uid://dtdu3db4ji4ot" path="res://Scripts/inv_slot.gd" id="2_7ec12"]
 [ext_resource type="Resource" uid="uid://7bofrcqb2o7e" path="res://Inventory/Items_resources/granade.tres" id="3_7ec12"]
 [ext_resource type="Script" uid="uid://chcgfu201v88v" path="res://Scripts/inventory.gd" id="3_h5350"]
 [ext_resource type="Resource" uid="uid://dwm3j7qn8nll5" path="res://Inventory/Items_resources/pistol.tres" id="3_xpsnh"]
-[ext_resource type="Resource" uid="uid://rvyvkr5ioofx" path="res://Inventory/Items_resources/medkit.tres" id="5_xpsnh"]
 [ext_resource type="Resource" uid="uid://der3a5jrdw3kh" path="res://Inventory/Items_resources/rpg.tres" id="6_5rcky"]
 [ext_resource type="Resource" uid="uid://cl62ownpr7q5h" path="res://Inventory/Items_resources/herb.tres" id="6_ci5v0"]
 [ext_resource type="Resource" uid="uid://whl3jlqj4t4f" path="res://Inventory/Items_resources/flask.tres" id="7_5rcky"]
@@ -16,73 +15,72 @@
 
 [sub_resource type="Resource" id="Resource_7ec12"]
 script = ExtResource("2_7ec12")
-item = ExtResource("3_7ec12")
-quantidade = 2
+item = ExtResource("3_xpsnh")
+quantidade = 1
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_xpsnh"]
 script = ExtResource("2_7ec12")
-item = ExtResource("3_xpsnh")
+item = ExtResource("12_vuknw")
 quantidade = 1
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_u4rd8"]
 script = ExtResource("2_7ec12")
-item = ExtResource("5_xpsnh")
-quantidade = 5
+item = ExtResource("10_wlldp")
+quantidade = 1
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_ci5v0"]
 script = ExtResource("2_7ec12")
 item = ExtResource("6_5rcky")
-quantidade = 0
+quantidade = 1
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_5rcky"]
 script = ExtResource("2_7ec12")
-item = ExtResource("7_i2tkw")
+item = ExtResource("3_7ec12")
 quantidade = 2
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_i2tkw"]
 script = ExtResource("2_7ec12")
-quantidade = 0
+item = ExtResource("12_bmw14")
+quantidade = 2
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_ds2jj"]
-script = ExtResource("2_7ec12")
-item = ExtResource("6_ci5v0")
-quantidade = 3
-metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
-
-[sub_resource type="Resource" id="Resource_wlldp"]
-script = ExtResource("2_7ec12")
-item = ExtResource("7_5rcky")
-quantidade = 4
-metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
-
-[sub_resource type="Resource" id="Resource_bmw14"]
-script = ExtResource("2_7ec12")
-item = ExtResource("10_wlldp")
-quantidade = 0
-metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
-
-[sub_resource type="Resource" id="Resource_vuknw"]
 script = ExtResource("2_7ec12")
 item = ExtResource("11_bmw14")
 quantidade = 3
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
+[sub_resource type="Resource" id="Resource_wlldp"]
+script = ExtResource("2_7ec12")
+item = ExtResource("7_i2tkw")
+quantidade = 3
+metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
+
+[sub_resource type="Resource" id="Resource_bmw14"]
+script = ExtResource("2_7ec12")
+item = ExtResource("7_5rcky")
+quantidade = 2
+metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
+
+[sub_resource type="Resource" id="Resource_vuknw"]
+script = ExtResource("2_7ec12")
+item = ExtResource("6_ci5v0")
+quantidade = 3
+metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
+
 [sub_resource type="Resource" id="Resource_yc7qm"]
 script = ExtResource("2_7ec12")
-item = ExtResource("12_vuknw")
 quantidade = 0
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_6g0al"]
 script = ExtResource("2_7ec12")
-item = ExtResource("12_bmw14")
-quantidade = 2
+quantidade = 0
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [resource]
