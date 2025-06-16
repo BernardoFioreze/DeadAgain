@@ -5,14 +5,12 @@ enum Turn { PLAYER, ZOMBIE }
 var turn: Turn = Turn.PLAYER
 var player: CharacterBody2D
 var zombies: Array = []
-var player_actions_left: int
 var tree: Object
 var droppable_items: Array = [
 	load("res://Scripts/granade_collectable.gd")
-	]
+]
 var father
 var ui_turn
-
 
 func initialize(player_ref: CharacterBody2D, scene_tree: Object, zombies_ref: Array, father_scene):
 	Global.turn_manager = self
@@ -24,15 +22,15 @@ func initialize(player_ref: CharacterBody2D, scene_tree: Object, zombies_ref: Ar
 			zombie.zombie_died.connect(_on_zombie_died)
 	father = father_scene
 	ui_turn = tree.root.find_child("ui_turn", true, false)
-	print(ui_turn)
 	start_turn()
 
 func start_turn():
 	match turn:
 		Turn.PLAYER:
-			player_actions_left = 3
-			if(is_instance_valid(ui_turn)):
-				ui_turn.update_turn_opacity(player_actions_left)
+			Global.player.start_turn()
+			if is_instance_valid(ui_turn):
+				ui_turn.update_icon_visibility(Global.player.max_actions)
+				ui_turn.update_turn_opacity(Global.player.current_actions)
 			print("Player's Turn!")
 		Turn.ZOMBIE:
 			print("Zombies' Turn!")
@@ -47,15 +45,16 @@ func perform_zombie_actions():
 	next_turn()
 
 func player_used_action():
+	ui_turn = tree.root.find_child("ui_turn", true, false)
+	if is_instance_valid(ui_turn):
+		ui_turn.update_turn_opacity(Global.player.current_actions)
+
 	if zombies.is_empty():
-		player_actions_left = 3
-	else:
-		player_actions_left -= 1
-	
-	if(is_instance_valid(ui_turn)):
-		ui_turn.update_turn_opacity(player_actions_left)
-	
-	if player_actions_left <= 0:
+		Global.player.start_turn()
+		ui_turn.update_turn_opacity(Global.player.current_actions)
+		return
+
+	if Global.player.current_actions <= 0:
 		next_turn()
 
 func next_turn():

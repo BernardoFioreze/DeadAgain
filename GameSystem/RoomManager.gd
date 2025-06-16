@@ -27,6 +27,8 @@ func save_player_state():
 		"health": player.health,
 		"inventory": player.inventory,
 		"experience_total": player.experience_total,
+		"max_actions": player.max_actions,
+		"current_actions": player.current_actions
 	}
 
 func restore_player_state():
@@ -35,6 +37,8 @@ func restore_player_state():
 	player.inventory = player_state["inventory"] 
 	player.health_bar.health = player_state["health"]
 	player.gain_experience(player_state["experience_total"])
+	player.max_actions = player_state["max_actions"]
+	player.current_actions = player_state["current_actions"]
 	
 func player_dead() -> void:
 	var death_scene = ResourceLoader.load("res://Scenes/UI/death_scene_place_holder.tscn")

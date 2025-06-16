@@ -35,3 +35,17 @@ offset_right = 34.0
 offset_bottom = 16.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_avlud")
+
+[node name="PlayerTurn4" type="TextureRect" parent="."]
+offset_left = 27.0
+offset_right = 43.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_avlud")
+
+[node name="PlayerTurn5" type="TextureRect" parent="."]
+offset_left = 36.0
+offset_right = 52.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_avlud")

@@ -17,6 +17,9 @@ var experience = 0
 var experience_total = 0
 var experience_required = get_required_xp(level + 1)
 
+var max_actions: int = 3
+var current_actions: int = max_actions
+
 func _ready() -> void:
 	Global.player = self
 	health_bar.init_health(health)
@@ -24,16 +27,26 @@ func _ready() -> void:
 	for zombie in get_tree().get_nodes_in_group("zombies"):
 		zombie.connect("clicked", _on_zombie_clicked)
 
+func start_turn():
+	current_actions = max_actions
+
+func use_action():
+	current_actions -= 1
+	if current_actions < 0:
+		current_actions = 0
+
+func can_act() -> bool:
+	return current_actions > 0
+
 func _on_zombie_clicked(zombie: Zombie):
 	if Global.turn_manager.turn != Global.turn_manager.Turn.PLAYER:
 		return
 
-	if Global.turn_manager.player_actions_left <= 0:
+	if not can_act():
 		print("No actions left!")
 		return
 		
 	var selected_item = inventory.get_selected_item()
-	
 	if selected_item == null:
 		print("Select a valid item")
 		return
@@ -53,7 +66,6 @@ func _on_zombie_clicked(zombie: Zombie):
 			print("No ammo")
 			return
 			
-		
 	if 1.0 - selected_item.get_miss_percentage() > randf():
 		zombie.take_damage(selected_item.get_intensity())
 		
@@ -65,6 +77,7 @@ func _on_zombie_clicked(zombie: Zombie):
 	else:
 		print("Errou o ataque")
 	
+	use_action()
 	Global.turn_manager.player_used_action()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -72,12 +85,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if Global.turn_manager.turn != Global.turn_manager.Turn.PLAYER:
 			return
 
-		if Global.turn_manager.player_actions_left <= 0:
+		if not can_act():
 			print("No actions left!")
 			return
 			
 		var selected_item = inventory.get_selected_item()
-		
 		if selected_item == null:
 			print("Select a valid item")
 			return
@@ -90,6 +102,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			inventory.consume()
 		
 		heal(selected_item.get_intensity())
+		use_action()
 		Global.turn_manager.player_used_action()
 
 func _on_mouse_entered() -> void:
@@ -102,6 +115,7 @@ func _on_mouse_exited() -> void:
 	
 func collect(item): 
 	inventory.insert(item)
+	use_action()
 	Global.turn_manager.player_used_action()
 	
 func suffer_damage(damage: int):
@@ -138,5 +152,5 @@ func level_up():
 	level += 1
 	experience_required = get_required_xp(level + 1)
 	_set_health(max_health)
+	max_actions = min(5, 3 + (level - 1))
 	leveled_up.emit()
-	
