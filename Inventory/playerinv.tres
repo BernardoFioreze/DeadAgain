@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=24 format=3 uid="uid://bm6vgsrlgnp7c"]
+[gd_resource type="Resource" script_class="Inv" load_steps=26 format=3 uid="uid://bm6vgsrlgnp7c"]
 
 [ext_resource type="Script" uid="uid://dtdu3db4ji4ot" path="res://Scripts/inv_slot.gd" id="2_7ec12"]
 [ext_resource type="Resource" uid="uid://7bofrcqb2o7e" path="res://Inventory/Items_resources/granade.tres" id="3_7ec12"]
@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://b0bbbcxxfybg" path="res://Inventory/Items_resources/rpgAmmo.tres" id="7_i2tkw"]
 [ext_resource type="Resource" uid="uid://br2fll54p06vd" path="res://Inventory/Items_resources/sniper.tres" id="10_wlldp"]
 [ext_resource type="Resource" uid="uid://bej5g4ue7i4nn" path="res://Inventory/Items_resources/sniperAmmo.tres" id="11_bmw14"]
+[ext_resource type="Resource" uid="uid://bgpx4k3xltiey" path="res://Inventory/Items_resources/shotgunAmmo.tres" id="12_bmw14"]
+[ext_resource type="Resource" uid="uid://cuy40llv7r7au" path="res://Inventory/Items_resources/shotgun.tres" id="12_vuknw"]
 
 [sub_resource type="Resource" id="Resource_7ec12"]
 script = ExtResource("2_7ec12")
@@ -73,12 +75,14 @@ metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_yc7qm"]
 script = ExtResource("2_7ec12")
+item = ExtResource("12_vuknw")
 quantidade = 0
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [sub_resource type="Resource" id="Resource_6g0al"]
 script = ExtResource("2_7ec12")
-quantidade = 0
+item = ExtResource("12_bmw14")
+quantidade = 2
 metadata/_custom_type_script = "uid://dtdu3db4ji4ot"
 
 [resource]

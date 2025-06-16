@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bgpx4k3xltiey"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_cvhwg"]
+[ext_resource type="Texture2D" uid="uid://c2vqj27tiu8dn" path="res://Assets/Inventory/Items/ShotgunAmmo.png" id="2_0k7qg"]
+
+[resource]
+script = ExtResource("1_cvhwg")
+name = "shotgunAmmo"
+texture = ExtResource("2_0k7qg")
+item_type = "Receipt"
+consumable = true
+intensity = 0
+areaDamage = false
+requiresAmmo = false
+missPercentage = 0.0
+metadata/_custom_type_script = "uid://7hhtx6fswij6"
