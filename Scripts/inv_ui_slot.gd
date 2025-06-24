@@ -101,6 +101,10 @@ func _drop_data(_at_position, data):
 				var criados = 0
 
 				for i in range(qtd_possivel):
+					# Verifica se tem ações restantes
+					if !Global.player.can_act():
+						break;
+					
 					# 1. Tenta empilhar em um slot já existente com o mesmo item
 					var colocado = false
 					for s in inv.slots.size():
@@ -133,6 +137,9 @@ func _drop_data(_at_position, data):
 					if destino.quantidade <= 0:
 						destino.item = null
 						destino.quantidade = 0
+						
+					Global.player.use_action()
+					Global.turn_manager.player_used_action()
 
 				if criados > 0:
 					inv.update.emit()

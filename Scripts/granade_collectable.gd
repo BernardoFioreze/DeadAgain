@@ -10,10 +10,10 @@ func drop_from_zombie():
 	await get_tree().create_timer(1.0).timeout
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Global.player.inventory.is_full():
-		print("Inventory full")
-		return
 	if event is InputEventMouseButton and event.is_pressed():
+		if Global.player.inventory.is_full_for_item(dropped_item):
+			print("Inventory full")
+			return
 		$AnimationPlayer.play("fade")
 		await get_tree().create_timer(0.3).timeout
 		queue_free()

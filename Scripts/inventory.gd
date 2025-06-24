@@ -60,9 +60,17 @@ func has_item(item_to_find: InvItem) -> bool:
 			return true
 	return false
 	
-func is_full() -> bool:
+func is_full_for_item(item: InvItem) -> bool:
 	for slot in slots:
+		# Se o slot está vazio, cabe o item
 		if slot.item == null:
 			return false
+
+		# Se o slot contém o mesmo item
+		if slot.item == item:
+			return false
+
+	# Se nenhum slot pode aceitar o item, está "cheio"
 	return true
+
 	
