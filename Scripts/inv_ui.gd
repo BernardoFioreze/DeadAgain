@@ -4,6 +4,9 @@ class_name InvUi
 
 @onready var inv: Inv = preload("res://Inventory/playerinv.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var thrash = $TrashCan
+
+var dragging : bool = false
 
 func _ready() -> void:
 	inv.update.connect(update_slots)
@@ -11,10 +14,12 @@ func _ready() -> void:
 		slots[i].set_index(i, self)
 		slots[i].slot_clicked.connect(_on_slot_clicked)
 		slots[i].drop_finished.connect(_on_drop_finished)
+		slots[i].drag_started.connect(_on_drag_started)
 	update_slots()
 	visible = true
 	
 func update_slots(combinable_item: InvItem = null):
+	dragging = false
 	var selected_item = inv.get_selected_item()
 	var required_ammo: InvItem = null
 
@@ -40,7 +45,6 @@ func _on_slot_clicked(index: int):
 func get_selected_slot() -> InvSlot:
 	return inv.get_selected_slot()
 	
-	
 func mark_combinable_slots(dragged_item: InvItem):
 	for i in range(min(inv.slots.size(), slots.size())):
 		var combinable := false
@@ -53,7 +57,18 @@ func mark_combinable_slots(dragged_item: InvItem):
 
 func _on_drop_finished():
 	clear_combinable()
+	dragging = false
+	
+func _on_drag_started():
+	dragging = true
 
 func clear_combinable():
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i], i == inv.selected_index, false)
+
+func _on_trash_can_mouse_entered() -> void:
+	if dragging:
+		thrash.mouse_entered();
+
+func _on_trash_can_mouse_exited() -> void:
+	thrash.mouse_exited();

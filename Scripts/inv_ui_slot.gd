@@ -5,6 +5,7 @@ extends Panel
 
 signal slot_clicked(slot_index: int)
 signal drop_finished
+signal drag_started
 
 var my_index: int
 var inv_ui: InvUi
@@ -49,6 +50,8 @@ func _get_drag_data(_at_position):
 	var slot_info = inv.slots[my_index]
 	if slot_info.item == null:
 		return null  # Não faz drag de slot vazio
+		
+	drag_started.emit()
 		
 	var slot_data = {
 		"index": my_index,
