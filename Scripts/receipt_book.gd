@@ -3,15 +3,15 @@ class_name ReceiptBook
 
 # Dicionário de receitas: chaves são tuplas de nomes de itens, valores são nomes do item resultante
 var receitas = {
-	["flask", "herb"]: "heal_potion",
-	["gunpowder", "shotgunCase"]: "shotgunAmmo",
-	["gunpowder", "sniperCase"]: "sniperAmmo"
+	["Frasco", "Erva de cura"]: "Poção de cura",
+	["Pólvora", "Case da munição da escopeta"]: "Munição de escopeta",
+	["Pólvora", "Case da munição da sniper"]: "Munição de sniper"
 }
 
 var item_paths = {
-	"heal_potion" : "res://Inventory/Items_resources/heal_potion.tres",
-	"shotgunAmmo" : "res://Inventory/Items_resources/shotgunAmmo.tres",
-	"sniperAmmo" : "res://Inventory/Items_resources/sniperAmmo.tres"
+	"Poção de cura" : "res://Inventory/Items_resources/heal_potion.tres",
+	"Munição de escopeta" : "res://Inventory/Items_resources/shotgunAmmo.tres",
+	"Munição de sniper" : "res://Inventory/Items_resources/sniperAmmo.tres"
 }
 
 func get_receipt(item1: InvItem, item2: InvItem) -> InvItem:

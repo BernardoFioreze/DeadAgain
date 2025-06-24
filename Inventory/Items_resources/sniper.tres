@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_th48x")
-name = "sniper"
+name = "Sniper"
 texture = ExtResource("2_uwqsr")
 item_type = "Attack"
 consumable = false

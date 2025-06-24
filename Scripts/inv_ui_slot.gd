@@ -17,6 +17,7 @@ func update(slot: InvSlot, is_selected: bool = false, combinable: bool = false, 
 	if !slot.item:
 		item_visual.visible = false
 		quantidade_label.visible = false
+		tooltip_text = "";
 	else:
 		item_visual.visible = true
 		item_visual.texture = slot.item.texture
@@ -25,6 +26,8 @@ func update(slot: InvSlot, is_selected: bool = false, combinable: bool = false, 
 			quantidade_label.text = str(slot.quantidade)
 		else:
 			quantidade_label.visible = false
+		tooltip_text = slot.item.name;
+		
 
 	# Controle de cor:
 	if highlight_ammo:

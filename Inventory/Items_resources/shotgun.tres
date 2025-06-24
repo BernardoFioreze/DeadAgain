@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("2_jphh4")
-name = "shotgun"
+name = "Escopeta"
 texture = ExtResource("3_fnc2a")
 item_type = "Attack"
 consumable = false

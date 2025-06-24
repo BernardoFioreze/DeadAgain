@@ -5,10 +5,12 @@
 
 [resource]
 script = ExtResource("1_bm7xe")
-name = "rpgAmmo"
+name = "Munição de RPG"
 texture = ExtResource("2_bwvwr")
 item_type = "Receipt"
 consumable = true
 intensity = 0
 areaDamage = false
+requiresAmmo = false
+missPercentage = 0.0
 metadata/_custom_type_script = "uid://7hhtx6fswij6"

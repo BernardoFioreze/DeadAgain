@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_wvl2t")
-name = "gunpowder"
+name = "Pólvora"
 texture = ExtResource("2_m458c")
 item_type = "Receipt"
 consumable = true

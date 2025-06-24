@@ -5,9 +5,12 @@
 
 [resource]
 script = ExtResource("1_qvxj6")
-name = "flask"
+name = "Frasco"
 texture = ExtResource("2_ndplm")
 item_type = "Receipt"
 consumable = true
 intensity = 0
+areaDamage = false
+requiresAmmo = false
+missPercentage = 0.0
 metadata/_custom_type_script = "uid://7hhtx6fswij6"

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_i170n")
-name = "shotgunCase"
+name = "Case da munição da escopeta"
 texture = ExtResource("2_euixa")
 item_type = "Receipt"
 consumable = true
