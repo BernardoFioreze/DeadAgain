@@ -12,12 +12,12 @@ signal clicked(zombie)
 signal zombie_died(zombie)
 
 var droppable_items: Array = [
-	preload("res://Scenes/Collectables/granade_collectable.tscn"),
 	preload("res://Scenes/Collectables/sniperCase_collectable.tscn"),
 	preload("res://Scenes/Collectables/shotgunCase_collectable.tscn"),
 	preload("res://Scenes/Collectables/gunpowder_collectable.tscn"),
 	preload("res://Scenes/Collectables/flask_collectable.tscn"),
 	preload("res://Scenes/Collectables/herb_collectable.tscn"),
+	preload("res://Scenes/Collectables/metalScrap_collectable.tscn"),
 ]
 
 func _ready() -> void:
@@ -27,6 +27,7 @@ func _ready() -> void:
 		droppable_items.append(preload("res://Scenes/Collectables/rpgAmmo_collectable.tscn"))		
 		droppable_items.append(preload("res://Scenes/Collectables/sniperAmmo_collectable.tscn"))
 		droppable_items.append(preload("res://Scenes/Collectables/shotgunAmmo_collectable.tscn"))
+		droppable_items.append(preload("res://Scenes/Collectables/medkit_collectable.tscn"))
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -46,7 +47,7 @@ func die():
 	zombie_died.emit(self)
 	drop_random_item()
 	queue_free()
-	Global.player.gain_experience(8)
+	Global.player.gain_experience(8, true)
 
 func drop_random_item():
 	if !Global.turn_manager:

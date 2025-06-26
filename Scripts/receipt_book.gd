@@ -5,13 +5,15 @@ class_name ReceiptBook
 var receitas = {
 	["Frasco", "Erva de cura"]: "Poção de cura",
 	["Pólvora", "Case da munição da escopeta"]: "Munição de escopeta",
-	["Pólvora", "Case da munição da sniper"]: "Munição de sniper"
+	["Pólvora", "Case da munição da sniper"]: "Munição de sniper",
+	["Pólvora", "Fragmento de metal"]: "Granada"
 }
 
 var item_paths = {
 	"Poção de cura" : "res://Inventory/Items_resources/heal_potion.tres",
 	"Munição de escopeta" : "res://Inventory/Items_resources/shotgunAmmo.tres",
-	"Munição de sniper" : "res://Inventory/Items_resources/sniperAmmo.tres"
+	"Munição de sniper" : "res://Inventory/Items_resources/sniperAmmo.tres",
+	"Granada" : "res://Inventory/Items_resources/granade.tres"
 }
 
 func get_receipt(item1: InvItem, item2: InvItem) -> InvItem:

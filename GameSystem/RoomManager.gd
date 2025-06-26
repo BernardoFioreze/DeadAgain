@@ -36,7 +36,7 @@ func restore_player_state():
 	player.health = player_state["health"]
 	player.inventory = player_state["inventory"] 
 	player.health_bar.health = player_state["health"]
-	player.gain_experience(player_state["experience_total"])
+	player.gain_experience(player_state["experience_total"], false)
 	player.max_actions = player_state["max_actions"]
 	player.current_actions = player_state["current_actions"]
 	

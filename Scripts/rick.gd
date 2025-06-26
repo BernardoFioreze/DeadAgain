@@ -137,20 +137,21 @@ func _set_health(value: int):
 func get_required_xp(level):
 	return round(pow(level, 1.8) + level * 4)
 
-func gain_experience(amount):
+func gain_experience(amount, shouldIncreaseHealth : bool):
 	experience_total += amount
 	experience += amount
 	var growth_data = []
 	while experience >= experience_required:
 		experience -= experience_required
 		growth_data.append([experience_required, experience_required])
-		level_up()
+		level_up(shouldIncreaseHealth)
 	growth_data.append([experience, experience_required])
 	experience_gained.emit(growth_data)
 		
-func level_up():
+func level_up(shouldIncreaseHealth : bool):
 	level += 1
 	experience_required = get_required_xp(level + 1)
-	_set_health(max_health)
+	if shouldIncreaseHealth:
+		_set_health(max_health)
 	max_actions = min(5, 3 + (level - 1))
 	leveled_up.emit()

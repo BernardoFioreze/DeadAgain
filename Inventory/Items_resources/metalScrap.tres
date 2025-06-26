@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://domskcqdhrmj4"]
+
+[ext_resource type="Script" uid="uid://7hhtx6fswij6" path="res://Inventory/Items_scripts/inventory_item.gd" id="1_x38t8"]
+[ext_resource type="Texture2D" uid="uid://cn7avn4orbnkd" path="res://Assets/Inventory/Items/MetalScrap.png" id="2_04sgh"]
+
+[resource]
+script = ExtResource("1_x38t8")
+name = "Fragmento de metal"
+texture = ExtResource("2_04sgh")
+item_type = "Receipt"
+consumable = true
+intensity = 0
+areaDamage = false
+requiresAmmo = false
+missPercentage = 0.0
+metadata/_custom_type_script = "uid://7hhtx6fswij6"
