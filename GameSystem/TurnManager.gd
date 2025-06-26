@@ -42,6 +42,7 @@ func perform_zombie_actions():
 		if is_instance_valid(zombie):
 			zombie.take_action()
 			await tree.create_timer(0.5).timeout
+			zombie.paint_back()
 	next_turn()
 
 func player_used_action():

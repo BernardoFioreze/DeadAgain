@@ -65,7 +65,11 @@ func drop_random_item():
 
 func take_action():
 	if is_instance_valid(Global.player):
+		zombie.modulate = Color(1.5, 1.5, 0.5, 1)
 		attack()
+		
+func paint_back():
+	zombie.modulate = Color(1, 1, 1, 1)
 
 func attack():
 	print("Zombie attacks player for %d damage!" % attack_force)
