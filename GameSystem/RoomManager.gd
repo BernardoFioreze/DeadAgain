@@ -8,7 +8,7 @@ var room_change_count : int
 
 func _ready() -> void:
 	Global.room_manager = self
-	room_change_count = 0
+	room_change_count = 1
 
 func change_room(room_path: String, room):
 	current_room = room

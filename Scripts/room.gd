@@ -14,7 +14,7 @@ func _ready():
 	randomize()
 	spawned_positions.clear()
 	
-	if Global.room_manager != null && Global.room_manager.get_room_change_count() % 5 == 0:
+	if Global.room_manager != null && Global.room_manager.get_room_change_count() % 3 == 0:
 		zombie_count = randi_range(1, 2) 
 		_spawn_boss()
 	else:
@@ -68,8 +68,9 @@ func _spawn_boss():
 	
 	var spawn_pos = Vector2()
 	var tries = 0
+	var min_safe_y = global_pos.y - extents.y * 100
 	while true:
-		spawn_pos = _get_random_position(global_pos, extents)
+		spawn_pos = _get_random_position(global_pos, extents, min_safe_y)
 		var too_close = false
 		for pos in spawned_positions:
 			if spawn_pos.distance_squared_to(pos) < min_distance_sq:
@@ -83,9 +84,11 @@ func _spawn_boss():
 	add_child(boss)
 	spawned_positions.append(spawn_pos)
 
-func _get_random_position(area_pos: Vector2, extents: Vector2) -> Vector2:
+func _get_random_position(area_pos: Vector2, extents: Vector2, min_y_override: float = -INF) -> Vector2:	
 	var x = randf_range(area_pos.x - extents.x, area_pos.x + extents.x)
-	var y = randf_range(area_pos.y - extents.y, area_pos.y + extents.y)
+	var y_min = max(area_pos.y - extents.y, min_y_override)
+	var y_max = area_pos.y + extents.y
+	var y = randf_range(y_min, y_max)
 	return Vector2(x, y)
 
 func _process(delta) -> void:
