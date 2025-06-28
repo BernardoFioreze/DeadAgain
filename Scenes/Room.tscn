@@ -1,14 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlft2yena0ndb"]
 
-[ext_resource type="Script" path="res://Scripts/room.gd" id="1_kdtvj"]
+[ext_resource type="Script" uid="uid://bg03vdoq8pg0x" path="res://Scripts/room.gd" id="1_kdtvj"]
 [ext_resource type="Texture2D" uid="uid://b6xio3jq0q8k3" path="res://Assets/Backgrounds/CaveBackground.jpg" id="2_fo1vw"]
 [ext_resource type="PackedScene" uid="uid://di78jq0fsna0q" path="res://Scenes/Rick.tscn" id="3_j3utp"]
-[ext_resource type="PackedScene" uid="uid://cnhlmolxqm83c" path="res://Scenes/zombie.tscn" id="4_kdje2"]
 [ext_resource type="PackedScene" uid="uid://w2uqfrxjjbao" path="res://Scenes/UI/ui_info.tscn" id="5_4uh16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5lkd"]
+size = Vector2(768.5, 222)
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_kdtvj")
-next_room_path = "res://Scenes/Rooms/Room2.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 1.0
@@ -23,14 +24,10 @@ metadata/_edit_use_anchors_ = true
 z_index = 1
 position = Vector2(261, 265)
 
-[node name="Zombie" parent="." instance=ExtResource("4_kdje2")]
-z_index = 1
-position = Vector2(922, 166)
-
 [node name="UI_Info" parent="." instance=ExtResource("5_4uh16")]
 
-[node name="Zombie2" parent="." instance=ExtResource("4_kdje2")]
-position = Vector2(731, 226)
+[node name="SpawnArea" type="Area2D" parent="."]
+position = Vector2(823, 201)
 
-[node name="Zombie3" parent="." instance=ExtResource("4_kdje2")]
-position = Vector2(1094, 267)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+shape = SubResource("RectangleShape2D_x5lkd")

@@ -175,6 +175,3 @@ func _drop_data(_at_position, data):
 	inv.select(my_index)
 	inv.update.emit()
 	drop_finished.emit()
-	
-func is_receipt(item1 : InvItem, item2: InvItem):
-	return

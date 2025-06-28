@@ -17,7 +17,7 @@ var droppable_items: Array = [
 	preload("res://Scenes/Collectables/gunpowder_collectable.tscn"),
 	preload("res://Scenes/Collectables/flask_collectable.tscn"),
 	preload("res://Scenes/Collectables/herb_collectable.tscn"),
-	preload("res://Scenes/Collectables/metalScrap_collectable.tscn"),
+	preload("res://Scenes/Collectables/metalScrap_collectable.tscn")
 ]
 
 func _ready() -> void:

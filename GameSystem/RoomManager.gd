@@ -4,12 +4,16 @@ class_name RoomManager
 var current_room
 var player_state: Dictionary
 
+var room_change_count : int
+
 func _ready() -> void:
 	Global.room_manager = self
+	room_change_count = 0
 
 func change_room(room_path: String, room):
 	current_room = room
 	save_player_state()
+	room_change_count += 1
 	
 	var new_room = load(room_path).instantiate()
 	get_tree().root.add_child(new_room)
@@ -20,6 +24,8 @@ func change_room(room_path: String, room):
 	current_room = new_room
 	restore_player_state()
 	
+func get_room_change_count():
+	return room_change_count
 	
 func save_player_state():
 	var player = current_room.player

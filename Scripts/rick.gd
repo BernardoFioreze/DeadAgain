@@ -23,7 +23,8 @@ var current_actions: int = max_actions
 func _ready() -> void:
 	Global.player = self
 	health_bar.init_health(health)
-
+		
+func connect_zombies():
 	for zombie in get_tree().get_nodes_in_group("zombies"):
 		zombie.connect("clicked", _on_zombie_clicked)
 
