@@ -68,9 +68,14 @@ func _spawn_boss():
 	
 	var spawn_pos = Vector2()
 	var tries = 0
-	var min_safe_y = global_pos.y - extents.y * 100
+	var y_top = global_pos.y - extents.y                      
+	var y_middle = global_pos.y                               
+	var x_min = global_pos.x - extents.x
+	var x_max = global_pos.x + extents.x
 	while true:
-		spawn_pos = _get_random_position(global_pos, extents, min_safe_y)
+		var x = randf_range(global_pos.x - extents.x, global_pos.x + extents.x)
+		var y = randf_range(y_top, y_middle)
+		spawn_pos = Vector2(x, y)
 		var too_close = false
 		for pos in spawned_positions:
 			if spawn_pos.distance_squared_to(pos) < min_distance_sq:

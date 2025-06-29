@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://srup1epjk72e" path="res://Scenes/Healthbar.tscn" id="3_dtu71"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88kja"]
-radius = 14.0
-height = 34.0
+radius = 10.5
+height = 26.5
 
 [node name="Rick" type="CharacterBody2D"]
 scale = Vector2(4, 4)
@@ -20,6 +20,7 @@ health = 100
 texture = ExtResource("1_ymxaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3.75)
 shape = SubResource("CapsuleShape2D_88kja")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_dtu71")]
