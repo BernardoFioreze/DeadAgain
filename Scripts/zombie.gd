@@ -11,6 +11,8 @@ class_name Zombie
 signal clicked(zombie)
 signal zombie_died(zombie)
 
+var is_dying: bool
+
 var droppable_items: Array = [
 	preload("res://Scenes/Collectables/sniperCase_collectable.tscn"),
 	preload("res://Scenes/Collectables/shotgunCase_collectable.tscn"),
@@ -22,6 +24,7 @@ var droppable_items: Array = [
 
 func _ready() -> void:
 	health_bar.init_health(health)
+	is_dying = false
 	if is_boss:
 		droppable_items.clear()
 		droppable_items.append(preload("res://Scenes/Collectables/rpgAmmo_collectable.tscn"))		
@@ -30,14 +33,14 @@ func _ready() -> void:
 		droppable_items.append(preload("res://Scenes/Collectables/medkit_collectable.tscn"))
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and not is_dying: 
 		emit_signal("clicked", self)
 
 func take_damage(amount: int):
 	_set_health(health - amount)
 
 func _set_health(value: int):
-	if health_bar:
+	if not is_dying:
 		health = value
 		health_bar.health = health
 		if health <= 0:
@@ -45,7 +48,8 @@ func _set_health(value: int):
 
 func die():
 	zombie_died.emit(self)
-	health_bar.queue_free()
+	health_bar.visible = false
+	is_dying = true
 	zombie.play("die")
 	await get_tree().create_timer(0.95).timeout 
 	drop_random_item()
@@ -68,7 +72,7 @@ func drop_random_item():
 	get_parent().add_child(item_instance)
 
 func take_action():
-	if is_instance_valid(Global.player):
+	if is_instance_valid(Global.player) and not is_dying:
 		zombie.modulate = Color(1.5, 1.5, 0.5, 1)
 		attack()
 		
@@ -79,6 +83,8 @@ func attack():
 	Global.player.suffer_damage(attack_force)
 	
 func _on_mouse_entered() -> void:
+	if is_dying:
+		return
 	zombie.modulate = Color(2,1,1,1)
 	scale = Vector2(4.20,4.20)
 	
@@ -93,6 +99,8 @@ func _on_mouse_entered() -> void:
 	Input.set_custom_mouse_cursor(cursor_image, Input.CURSOR_ARROW)
 		
 func _on_mouse_exited() -> void:
+	if is_dying:
+		return
 	zombie.modulate = Color(1,1,1,1)
 	scale = Vector2(4,4)
 	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)

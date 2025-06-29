@@ -108,7 +108,7 @@ is_boss = true
 sprite_frames = SubResource("SpriteFrames_ouxnj")
 animation = &"die"
 autoplay = "idle"
-frame_progress = 0.0806953
+frame_progress = 0.0759127
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
