@@ -1,9 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6xfymyr06r2d"]
+[gd_scene load_steps=21 format=3 uid="uid://c6xfymyr06r2d"]
 
 [ext_resource type="Texture2D" uid="uid://cv8yqyn0lbfac" path="res://Assets/Sprites/Sprite-Boss.png" id="2_me6e5"]
+[ext_resource type="Texture2D" uid="uid://irrwhlx1eilm" path="res://Assets/Sprites/Sprite-Boss-Dying.png" id="3_6tp3b"]
 [ext_resource type="Texture2D" uid="uid://fcrwuy20eixn" path="res://Assets/Sprites/Sprite-Boss-2.png" id="3_j5nlm"]
+[ext_resource type="Texture2D" uid="uid://b7xi2lkt8a4ft" path="res://Assets/Sprites/Sprite-Boss-Dying2.png" id="4_0gjka"]
 [ext_resource type="Script" uid="uid://dsmgje8idxak4" path="res://Scripts/boss.gd" id="4_j5nlm"]
 [ext_resource type="Script" uid="uid://cg822g13yorfm" path="res://Scripts/health_bar.gd" id="4_me6e5"]
+[ext_resource type="Texture2D" uid="uid://cqp176pkdth7a" path="res://Assets/Sprites/Sprite-Boss-Dying3.png" id="5_iy1o6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnrqi"]
+atlas = ExtResource("2_me6e5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avs7u"]
+atlas = ExtResource("3_6tp3b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6qxx"]
+atlas = ExtResource("4_0gjka")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6njix"]
+atlas = ExtResource("5_iy1o6")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5nlm"]
 atlas = ExtResource("2_me6e5")
@@ -19,6 +38,23 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ouxnj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnrqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avs7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6qxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6njix")
+}],
+"loop": true,
+"name": &"die",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j5nlm")
@@ -70,8 +106,9 @@ is_boss = true
 
 [node name="ZombieAnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ouxnj")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
+frame_progress = 0.0806953
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

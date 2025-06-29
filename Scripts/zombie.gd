@@ -37,14 +37,17 @@ func take_damage(amount: int):
 	_set_health(health - amount)
 
 func _set_health(value: int):
-	health = value
-	health_bar.health = health
-	if health <= 0:
-		die()
+	if health_bar:
+		health = value
+		health_bar.health = health
+		if health <= 0:
+			die()
 
 func die():
-	print("Zombie died!")
 	zombie_died.emit(self)
+	health_bar.queue_free()
+	zombie.play("die")
+	await get_tree().create_timer(0.95).timeout 
 	drop_random_item()
 	queue_free()
 	Global.player.gain_experience(8, true)
