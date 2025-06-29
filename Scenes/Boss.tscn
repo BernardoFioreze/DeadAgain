@@ -40,8 +40,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyl7r"]
-radius = 14.0
-height = 34.0
+radius = 7.375
+height = 23.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78m4n"]
 
@@ -75,6 +75,7 @@ autoplay = "idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 6.25)
 shape = SubResource("CapsuleShape2D_iyl7r")
 
 [node name="HealthBar" type="ProgressBar" parent="."]

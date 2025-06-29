@@ -36,8 +36,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyl7r"]
-radius = 14.0
-height = 34.0
+radius = 7.0
+height = 24.0
 
 [node name="Zombie" type="CharacterBody2D" groups=["Enemy", "zombies"]]
 scale = Vector2(4, 4)
@@ -56,6 +56,7 @@ frame_progress = 0.613641
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 5.25)
 shape = SubResource("CapsuleShape2D_iyl7r")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_iyl7r")]

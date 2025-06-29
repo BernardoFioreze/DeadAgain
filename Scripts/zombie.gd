@@ -48,6 +48,7 @@ func die():
 	drop_random_item()
 	queue_free()
 	Global.player.gain_experience(8, true)
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 
 func drop_random_item():
 	if !Global.turn_manager:
@@ -72,13 +73,23 @@ func paint_back():
 	zombie.modulate = Color(1, 1, 1, 1)
 
 func attack():
-	print("Zombie attacks player for %d damage!" % attack_force)
 	Global.player.suffer_damage(attack_force)
 	
 func _on_mouse_entered() -> void:
 	zombie.modulate = Color(2,1,1,1)
 	scale = Vector2(4.20,4.20)
-
+	
+	var inv = Global.player.inventory
+	
+	var cursor_image : Texture2D
+	if inv.get_selected_item() != null && inv.get_selected_item().is_attack_item():
+		cursor_image = inv.get_selected_item().texture
+	else:
+		cursor_image = preload("res://Assets/Cursor/blocked_action.png")
+		
+	Input.set_custom_mouse_cursor(cursor_image, Input.CURSOR_ARROW)
+		
 func _on_mouse_exited() -> void:
 	zombie.modulate = Color(1,1,1,1)
 	scale = Vector2(4,4)
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)

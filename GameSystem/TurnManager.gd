@@ -31,9 +31,9 @@ func start_turn():
 			if is_instance_valid(ui_turn):
 				ui_turn.update_icon_visibility(Global.player.max_actions)
 				ui_turn.update_turn_opacity(Global.player.current_actions)
-			print("Player's Turn!")
+			Global.warning_label.change_label("Vez do jogador!")
 		Turn.ZOMBIE:
-			print("Zombies' Turn!")
+			Global.warning_label.change_label("Vez dos zumbis!")
 			perform_zombie_actions()
 
 func perform_zombie_actions():

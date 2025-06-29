@@ -44,16 +44,16 @@ func _on_zombie_clicked(zombie: Zombie):
 		return
 
 	if not can_act():
-		print("No actions left!")
+		Global.warning_label.change_label("Jogador sem ações")
 		return
 		
 	var selected_item = inventory.get_selected_item()
 	if selected_item == null:
-		print("Select a valid item")
+		Global.warning_label.change_label("Selecione um item válido")
 		return
 		
 	if !selected_item.is_attack_item():
-		print("Select an attack item")
+		Global.warning_label.change_label("Selecione um item de ataque")
 		return
 	
 	if selected_item.is_consumable():
@@ -64,7 +64,7 @@ func _on_zombie_clicked(zombie: Zombie):
 		if inventory.has_item(ammo_id):
 			inventory.consume_item(ammo_id)
 		else:
-			print("No ammo")
+			Global.warning_label.change_label("Arma sem munição")
 			return
 			
 	if 1.0 - selected_item.get_miss_percentage() > randf():
@@ -76,7 +76,7 @@ func _on_zombie_clicked(zombie: Zombie):
 					z.take_damage(selected_item.get_intensity() * 0.3)
 			suffer_damage(selected_item.get_intensity() * 0.1)
 	else:
-		print("Errou o ataque")
+		Global.warning_label.change_label("Errou o ataque")
 	
 	use_action()
 	Global.turn_manager.player_used_action()
@@ -87,16 +87,16 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			return
 
 		if not can_act():
-			print("No actions left!")
+			Global.warning_label.change_label("Jogador sem ações")
 			return
 			
 		var selected_item = inventory.get_selected_item()
 		if selected_item == null:
-			print("Select a valid item")
+			Global.warning_label.change_label("Selecione um item válido")
 			return
 			
 		if !selected_item.is_healing_item():
-			print("Select an healing item")
+			Global.warning_label.change_label("Selecione um item de cura")
 			return
 		
 		if selected_item.is_consumable():
@@ -109,10 +109,19 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 func _on_mouse_entered() -> void:
 	rick.modulate = Color(2,1,1,1)
 	scale = Vector2(4.20,4.20)
+	
+	var cursor_image : Texture2D
+	if inventory.get_selected_item() != null && inventory.get_selected_item().is_healing_item():
+		cursor_image = inventory.get_selected_item().texture
+	else:
+		cursor_image = preload("res://Assets/Cursor/blocked_action.png")
+		
+	Input.set_custom_mouse_cursor(cursor_image, Input.CURSOR_ARROW)
 
 func _on_mouse_exited() -> void:
 	rick.modulate = Color(1,1,1,1)
 	scale = Vector2(4,4)
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 	
 func collect(item): 
 	inventory.insert(item)
