@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://w2uqfrxjjbao"]
+[gd_scene load_steps=14 format=3 uid="uid://w2uqfrxjjbao"]
 
 [ext_resource type="PackedScene" uid="uid://ip3ywdjo5pmp" path="res://Scenes/UI/inv_ui.tscn" id="1_p7st5"]
 [ext_resource type="PackedScene" uid="uid://bkw2dykuyn7uu" path="res://Scenes/UI/ui_experience_bar.tscn" id="3_rnly4"]
@@ -6,8 +6,18 @@
 [ext_resource type="FontFile" uid="uid://biqq5tj2cqycu" path="res://Assets/Fonts/COURBD.TTF" id="4_ue51r"]
 [ext_resource type="Script" uid="uid://b6yegd78xj1uq" path="res://Scenes/UI/room_label.gd" id="5_lgco1"]
 [ext_resource type="Script" uid="uid://btwspi6c7eds7" path="res://Scenes/UI/warning_label.gd" id="6_4nbqs"]
+[ext_resource type="Texture2D" uid="uid://c6td8ao23uvqc" path="res://Assets/right_arrow.png" id="7_mn5xv"]
+[ext_resource type="Script" uid="uid://4bjjijw8ba4t" path="res://Scripts/button.gd" id="8_rb5ab"]
 
 [sub_resource type="GDScript" id="GDScript_p7st5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjq8d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mn5xv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwhja"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb5ab"]
 
 [node name="UI_Info" type="CanvasLayer"]
 script = SubResource("GDScript_p7st5")
@@ -46,15 +56,35 @@ vertical_alignment = 1
 script = ExtResource("5_lgco1")
 
 [node name="WarningLabel" type="Label" parent="."]
-offset_left = 440.0
-offset_top = 399.0
-offset_right = 1000.0
-offset_bottom = 440.0
+offset_left = 445.0
+offset_top = 413.0
+offset_right = 1005.0
+offset_bottom = 454.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ue51r")
 theme_override_font_sizes/font_size = 30
 text = "Warning label"
 vertical_alignment = 1
 script = ExtResource("6_4nbqs")
+
+[node name="NextRoomButton" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 952.0
+offset_top = 399.0
+offset_right = 1256.0
+offset_bottom = 468.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_ue51r")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjq8d")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mn5xv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cwhja")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rb5ab")
+text = "Próximo quarto"
+icon = ExtResource("7_mn5xv")
+icon_alignment = 2
+script = ExtResource("8_rb5ab")
+
+[connection signal="pressed" from="NextRoomButton" to="NextRoomButton" method="_on_pressed"]
 
 [editable path="UiExperienceBar"]

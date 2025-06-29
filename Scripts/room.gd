@@ -106,6 +106,7 @@ func _process(delta) -> void:
 		else:
 			count += 1
 	if count == 0:
+		Global.next_button.turn_visible(self)
 		var item_count := 0
 		for child in get_children():
 			if child.get_script() in droppable_items:
