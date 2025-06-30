@@ -164,5 +164,6 @@ func level_up(shouldIncreaseHealth : bool):
 	experience_required = get_required_xp(level + 1)
 	if shouldIncreaseHealth:
 		_set_health(max_health)
-	max_actions = min(5, 3 + (level - 1))
+	if max_actions < 5 && level % 3 == 0:
+		max_actions += 1
 	leveled_up.emit()

@@ -39,6 +39,6 @@ func update_turn_opacity(actions_left: int):
 
 func update_turn_ui_level_up():
 	update_icon_visibility(Global.player.max_actions)
-	update_turn_opacity(Global.player.max_actions)
+	update_turn_opacity(Global.player.current_actions)
 	
 	
