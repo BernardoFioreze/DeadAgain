@@ -32,6 +32,7 @@ func change_room(room_path: String, room):
 	current_room = new_room
 	if current_room && current_room.is_combat_room:
 		restore_player_state()
+		Global.player.level_up_emit()
 	
 func get_room_change_count():
 	return room_change_count

@@ -167,3 +167,6 @@ func level_up(shouldIncreaseHealth : bool):
 	if max_actions < 5 && level % 3 == 0:
 		max_actions += 1
 	leveled_up.emit()
+	
+func level_up_emit():
+	leveled_up.emit()	
