@@ -47,8 +47,8 @@ func perform_zombie_actions():
 				zombie.paint_back()
 	while Global.someone_attacking:
 		continue
-	if not player_is_dead:
-		player_is_dead = player.is_dead
+	if not is_instance_valid(player):
+		return
 	next_turn()
 
 func player_used_action():
