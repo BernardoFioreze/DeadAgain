@@ -51,11 +51,11 @@ func die():
 	health_bar.visible = false
 	is_dying = true
 	drop_random_item()
+	Global.player.gain_experience(8, true)
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 	zombie.play("die")
 	await get_tree().create_timer(0.95).timeout 
 	queue_free()
-	Global.player.gain_experience(8, true)
-	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 
 func drop_random_item():
 	if !Global.turn_manager:
