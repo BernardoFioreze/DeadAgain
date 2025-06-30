@@ -11,6 +11,7 @@ var droppable_items: Array = [
 ]
 var father
 var ui_turn
+var player_is_dead = false
 
 func initialize(player_ref: CharacterBody2D, scene_tree: Object, zombies_ref: Array, father_scene):
 	Global.turn_manager = self
@@ -42,7 +43,12 @@ func perform_zombie_actions():
 		if is_instance_valid(zombie):
 			zombie.take_action()
 			await tree.create_timer(0.5).timeout
-			zombie.paint_back()
+			if is_instance_valid(zombie):
+				zombie.paint_back()
+	while Global.someone_attacking:
+		continue
+	if not player_is_dead:
+		player_is_dead = player.is_dead
 	next_turn()
 
 func player_used_action():
@@ -59,8 +65,11 @@ func player_used_action():
 		next_turn()
 
 func next_turn():
+	await tree.create_timer(0.5).timeout
 	turn = Turn.ZOMBIE if turn == Turn.PLAYER else Turn.PLAYER
-	start_turn()
+	if player_is_dead:
+		return
+	start_turn.call_deferred()
 
 func get_zombies() -> Array:
 	return zombies

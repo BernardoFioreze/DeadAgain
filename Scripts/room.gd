@@ -2,7 +2,7 @@ extends Node
 class_name Room
 
 @onready var turn_manager = preload("res://GameSystem/TurnManager.gd").new()
-@onready var player: CharacterBody2D = $Rick
+@export var player: CharacterBody2D
 @onready var spawn_area = $SpawnArea
 
 var zombie_count: int
@@ -11,6 +11,7 @@ var zombies = []
 var spawned_positions = []
 
 func _ready():
+	player = $Rick
 	randomize()
 	spawned_positions.clear()
 	
@@ -113,6 +114,14 @@ func _process(delta) -> void:
 				item_count += 1
 		if item_count == 0:
 			_on_combat_ended()
+
+func finish_turn_manager():
+	var children = self.get_children()
+	for child in children:
+		if "Zombie" in child.name:
+			child.queue_free()
+	#var child = $TurnManager
+	#child.queue_free()
 
 func _on_combat_ended():
 	Global.room_manager.change_room("res://Scenes/Room.tscn", self)

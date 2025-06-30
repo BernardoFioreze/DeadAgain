@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwd6mmt2ofrvf"]
+
+[ext_resource type="Script" uid="uid://k4wpykdsqq6w" path="res://Scripts/end_scene_button.gd" id="1_341ae"]
+[ext_resource type="Texture2D" uid="uid://b6xio3jq0q8k3" path="res://Assets/Backgrounds/CaveBackground.jpg" id="2_6hgrp"]
+[ext_resource type="Texture2D" uid="uid://d0xfkasg7usan" path="res://Assets/HUD/Restart_button_icon.png" id="3_4ksrd"]
+
+[node name="EndScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_341ae")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2562.0
+offset_bottom = 1444.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6hgrp")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 587.206
+offset_top = 304.182
+offset_right = 2263.21
+offset_bottom = 2076.18
+scale = Vector2(0.063, 0.063)
+icon = ExtResource("3_4ksrd")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

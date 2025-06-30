@@ -16,7 +16,7 @@ signal experience_gained(growth_data)
 var experience = 0
 var experience_total = 0
 var experience_required = get_required_xp(level + 1)
-
+@onready var is_dead = false
 var max_actions: int = 3
 var current_actions: int = max_actions
 
@@ -141,8 +141,12 @@ func _set_health(value: int):
 	health = min(value, max_health)
 	health_bar.health = health
 	if health <= 0:
-		print("Player died!")
-		Global.room_manager.player_dead()
+		if not is_dead:
+			is_dead = true
+			print("Player died!")
+			print(Global.room_manager) 
+
+			Global.room_manager.player_dead(Global.room_manager.get_child(-1))
 		
 func get_required_xp(level):
 	return round(pow(level, 1.8) + level * 4)
