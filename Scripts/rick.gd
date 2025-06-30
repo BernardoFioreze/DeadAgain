@@ -143,9 +143,6 @@ func _set_health(value: int):
 	if health <= 0:
 		if not is_dead:
 			is_dead = true
-			print("Player died!")
-			print(Global.room_manager) 
-
 			Global.room_manager.player_dead(Global.room_manager.get_child(-1))
 		
 func get_required_xp(level):

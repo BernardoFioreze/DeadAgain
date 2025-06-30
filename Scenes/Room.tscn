@@ -10,6 +10,7 @@ size = Vector2(768.5, 222)
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_kdtvj")
+is_combat_room = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 1.0

@@ -8,7 +8,6 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	if cr:
-		print("teste")
 		cr._on_combat_ended()
 	
 func turn_visible(current_room):

@@ -3,6 +3,8 @@ class_name Room
 
 @onready var turn_manager = preload("res://GameSystem/TurnManager.gd").new()
 @export var player: CharacterBody2D
+@export var is_combat_room: bool
+
 @onready var spawn_area = $SpawnArea
 
 var zombie_count: int
